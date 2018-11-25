@@ -1,0 +1,48 @@
+ <a class="btn-large btn-submit" style="float: right;" routerLink='/login' routerLinkActive='active'>Sign In</a>
+  
+<div class="row">
+  <div class="col s12">
+      <div class="sm-jumbotron center-align">
+        <h2>User Registration</h2>
+      </div>
+      <div *ngIf="user">
+      <form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+        <div class="row">
+          <div class="input-field col s6">
+            <input class="validate" type="text" name="username" #UserName="ngModel" [(ngModel)]="user.username" required>
+            <label data-error="Required field!">UserName</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" name="roleName" #Roleame="ngModel" [(ngModel)]="user.rolename">
+            <label>Role Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input class="validate" type="text" name="email" #Email="ngModel" [(ngModel)]="user.email" [pattern]="emailPattern">
+            <label data-error="Invalid email!">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input class="validate" type="password" name="password" #Password="ngModel" [(ngModel)]="user.Password" required  minlength="3">
+            <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input class="validate" type="password" name="confirmPassword" #ConfirmPassword="ngModel" [(ngModel)]="user.confirmPassword" required  minlength="3">
+            <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">Confirm Password</label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+              <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
