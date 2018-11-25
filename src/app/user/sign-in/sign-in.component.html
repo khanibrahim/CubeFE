@@ -1,5 +1,5 @@
-<a class="btn-large btn-submit" style="float: right;" routerLink='/signup' routerLinkActive='active'>Sign Up</a>
-
+<div class="row"><app-navigation></app-navigation></div>
+<div class="container">
 <div *ngIf="isLoginError" class="red-text center error-message">
     <i class="material-icons">error</i> Incorrect username or password
 </div>
@@ -23,3 +23,4 @@
          </div>
        </div>
  </form>
+ </div>
