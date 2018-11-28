@@ -10,16 +10,16 @@ import { QBoardComponent } from './qboard/qboard.component';
 
 
 export const appRoutes: Routes = [
-    { path: 'Home', component: HomeComponent , canActivate:[AuthGuard] },
+    { path: 'home', component: HomeComponent , canActivate:[AuthGuard] },
     {
-        path: 'Register', component: SignUpComponent
+        path: 'register', component: SignUpComponent
     },
     {
-        path: 'Login', component: SignInComponent
+        path: 'login', component: SignInComponent
     },
     {
-        path: 'QBoard', component: QBoardComponent
+        path: 'qboard', component: QBoardComponent
     },
-    { path : '', redirectTo:'/QBoard', pathMatch : 'full'}
+    { path : '', redirectTo:'/qboard', pathMatch : 'full'}
     
 ];
