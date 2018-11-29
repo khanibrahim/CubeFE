@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): 
     Observable<HttpEvent<any>> {
-        
+        debugger;
         // Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
         console.log(req.headers.get('No-Auth'))
         if (req.headers.get('No-Auth') == "True")

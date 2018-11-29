@@ -28,6 +28,8 @@ export class SignUpComponent implements OnInit {
       email: '',
       password: '',
       confirmPassword: ''
+      ,newPassword:'',
+      oldPassword:''
     }
   }
 

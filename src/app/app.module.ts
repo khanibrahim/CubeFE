@@ -21,7 +21,9 @@ import { QBoardComponent } from './qboard/qboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { QcanvasComponent } from './qboard/qcanvas/qcanvas.component';
 import { QcreateComponent } from './qboard/qcreate/qcreate.component';
-
+import { ChangePasswordComponent } from './user/change-password/change-password.component';
+import { LayoutModule } from 'angular-admin-lte';    //Loading layout module
+import { BoxModule } from 'angular-admin-lte';       //Box component
 
 
 @NgModule({
@@ -34,23 +36,29 @@ import { QcreateComponent } from './qboard/qcreate/qcreate.component';
     QBoardComponent,
     NavigationComponent,
     QcanvasComponent,
-    QcreateComponent
+    QcreateComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
+    
     AppRoutingModule,
-    FormsModule,
+   
     HttpClientModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
+  
   providers: [UserService,AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent]
+  ,
+  
 })
 export class AppModule { }
 

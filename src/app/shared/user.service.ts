@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import {  Response } from "@angular/http";
 import {Observable} from 'rxjs';
 // import 'rxjs/add/operator/map';
 import { User } from './user.model';
 import { HttpHeaders } from '@angular/common/http'
-
+import { retryWhen } from 'rxjs/operators';
+import { throwError } from "rxjs";
 @Injectable()
 export class UserService {
   readonly rootUrl = 'http://localhost:8086';
@@ -18,6 +19,8 @@ export class UserService {
       'email': user.email,
       'roleName': user.roleName,
       'confirmPassword': user.confirmPassword
+      ,'newPassword':user.newPassword,
+      'oldPassword':user.oldPassword
     }
     console.log(user)
   //  var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -36,5 +39,24 @@ export class UserService {
   getUserClaims(){
     return  this.http.get(this.rootUrl+'/api/guest');
    }
-  
-}
+   changePassword(user){
+    
+   var body={OldPassword:user.OldPassword,NewPassword:user.NewPassword,ConfirmPassword:user.ConfirmPassword}
+   console.log(user)
+   console.log(body)
+   return  this.http.post(this.rootUrl+'/api/Account/ChangePassword',body);
+   }
+
+   private handleError(errorResponse:HttpErrorResponse){
+    if(errorResponse.error instanceof ErrorEvent){
+
+      console.log('ClientSide Error:',errorResponse.error.message);
+    }
+    else
+    {
+      console.log('Server Side Error:',errorResponse);
+    }
+    return  throwError('Something went wrong.');
+   }
+  }
+
