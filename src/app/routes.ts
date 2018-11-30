@@ -11,18 +11,22 @@ import { QBoardComponent } from './qboard/qboard.component';
 
 
 export const appRoutes: Routes = [
-    { path: 'Home', component: HomeComponent , canActivate:[AuthGuard] },
+    { path: 'home', component: HomeComponent , canActivate:[AuthGuard] },
     {
-        path: 'Register', component: SignUpComponent
+        path: 'register', component: SignUpComponent
     },
     {
-        path: 'Login', component: SignInComponent
+        path: 'login', component: SignInComponent
     },
     {
-        path: 'QBoard', component: QBoardComponent
+        path: 'qboard', component: QBoardComponent
     },
+<<<<<<< HEAD
     { path : '', redirectTo:'/QBoard', pathMatch : 'full'}
     // ,
     // { path : 'ChangePassword',component:ChangePasswordComponent}
+=======
+    { path : '', redirectTo:'/qboard', pathMatch : 'full'}
+>>>>>>> 15a90b83b6cfb1a1ed8c47d6ec79d3bfd7b79384
     
 ];

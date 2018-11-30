@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Question } from '../qquestion'
+import { Observable } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,23 @@ export class QserviceService {
 
   constructor() { }
 
-  question: Question = {id:1, question:"Q1: Question one here?"};
+  private subject = new Subject<any>();
 
-  getQuestion(){
-    return this.question;
+  setHtml(_html: string) {
+      this.subject.next({ _html });
+  }
+
+  clearHtml() {
+      this.subject.next();
+  }
+
+  setQuestion(_question:string,num:number)
+  {
+      localStorage.setItem("Question"+num,_question)
+  }
+
+  getHtml(): Observable<any> {
+      return this.subject.asObservable();
   }
 
 }

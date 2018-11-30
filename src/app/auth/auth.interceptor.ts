@@ -18,35 +18,14 @@ export class AuthInterceptor implements HttpInterceptor {
         if (req.headers.get('No-Auth') == "True")
             return next.handle(req.clone());
 
-            if (localStorage.getItem('userToken') != null) {
+        if (localStorage.getItem('userToken') != null) {
             const clonedreq = req.clone({
                 // headers: req.headers.set("Authorization", "Bearer " + localStorage.getItem('userToken'))
                 setHeaders: {
                     Authorization: "Bearer " + localStorage.getItem('userToken')
-                  }            
+                }
             });
-             return next.handle(clonedreq)
-            //     .do(
-            //     succ => { },
-            //     err => {
-            //         if (err.status === 401)
-            //             this.router.navigateByUrl('/login');
-            //     }
-            //     );
-
-            // return next.handle(clonedreq).pipe(tap(
-            //     (err: any) =>{
-            //         if(err instanceof HttpErrorResponse)
-            //         {
-            //             console.log('Mohammed' + err);
-            //             console.log('req url "" ' + req.url);
-            //             if(err.status === 401)
-            //             {
-            //                 this.router.navigateByUrl('/login');
-            //             }
-            //         }
-            //     }
-            // ));
+            return next.handle(clonedreq)
         }
         else {
             this.router.navigateByUrl('/login');
