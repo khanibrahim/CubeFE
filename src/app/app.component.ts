@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LayoutModule } from 'angular-admin-lte';    //Loading layout module
-import { BoxModule } from 'angular-admin-lte';       //Box component
+//import { LayoutModule } from 'angular-admin-lte';    //Loading layout module
+//import { BoxModule } from 'angular-admin-lte';       //Box component
 //import { ViewEncapsulation } from '@angular/compiler/src/core';
 import { Injectable, Type ,ViewEncapsulation} from '@angular/core';
 @Component({

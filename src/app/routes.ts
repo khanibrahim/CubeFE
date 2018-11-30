@@ -21,12 +21,6 @@ export const appRoutes: Routes = [
     {
         path: 'qboard', component: QBoardComponent
     },
-<<<<<<< HEAD
-    { path : '', redirectTo:'/QBoard', pathMatch : 'full'}
-    // ,
-    // { path : 'ChangePassword',component:ChangePasswordComponent}
-=======
     { path : '', redirectTo:'/qboard', pathMatch : 'full'}
->>>>>>> 15a90b83b6cfb1a1ed8c47d6ec79d3bfd7b79384
     
 ];
