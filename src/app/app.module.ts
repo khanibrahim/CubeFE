@@ -23,8 +23,9 @@ import { QcanvasComponent } from './qboard/qcanvas/qcanvas.component';
 import { QcreateComponent } from './qboard/qcreate/qcreate.component';
 //import { ChangePasswordComponent } from './user/change-password/change-password.component';
 
-import { LayoutModule } from 'angular-admin-lte';   //Import the layout module.
-
+import { adminLteConf } from './admin-lte.conf';   //Import the layout configuration.
+import { LayoutModule } from 'angular-admin-lte';
+import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';   //Import the layout module.
 
 
 @NgModule({
@@ -37,21 +38,23 @@ import { LayoutModule } from 'angular-admin-lte';   //Import the layout module.
     QBoardComponent,
     NavigationComponent,
     QcanvasComponent,
-    QcreateComponent
+    QcreateComponent,
+    UserMenuComponent
     //,    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
     
     AppRoutingModule,
-   
+    LayoutModule.forRoot(adminLteConf),   //Provide the configuration to the layout module.
     HttpClientModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     FormsModule
+    
   ],
-  
+  exports:[UserMenuComponent],
   providers: [UserService,AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
