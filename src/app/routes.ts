@@ -7,7 +7,7 @@ import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { QBoardComponent } from './qboard/qboard.component';
-import { ChangePasswordComponent } from './user/change-password/change-password.component';
+//mport { ChangePasswordComponent } from './user/change-password/change-password.component';
 
 
 export const appRoutes: Routes = [
@@ -22,7 +22,7 @@ export const appRoutes: Routes = [
         path: 'QBoard', component: QBoardComponent
     },
     { path : '', redirectTo:'/QBoard', pathMatch : 'full'}
-    ,
-    { path : 'ChangePassword',component:ChangePasswordComponent}
+    // ,
+    // { path : 'ChangePassword',component:ChangePasswordComponent}
     
 ];
