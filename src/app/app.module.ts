@@ -15,17 +15,19 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './cube/home/home.component';
 import { UserComponent } from './user/user.component';
-import { QBoardComponent } from './qboard/qboard.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { QcanvasComponent } from './qboard/qcanvas/qcanvas.component';
-import { QcreateComponent } from './qboard/qcreate/qcreate.component';
-//import { ChangePasswordComponent } from './user/change-password/change-password.component';
+import { QBoardComponent } from './cube/qboard/qboard.component';
+import { NavigationComponent } from './cube/navigation/navigation.component';
+import { QcanvasComponent } from './cube/qboard/qcanvas/qcanvas.component';
+import { QcreateComponent } from './cube/qboard/qcreate/qcreate.component';
+import { ChangePasswordComponent } from './user/change-password/change-password.component';
 
 import { adminLteConf } from './admin-lte.conf';   //Import the layout configuration.
 import { LayoutModule } from 'angular-admin-lte';
-import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';   //Import the layout module.
+import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';
+import { CubeComponent } from './cube/cube.component';
+import { MastersComponent } from './cube/masters/masters.component';   //Import the layout module.
 
 
 @NgModule({
@@ -39,12 +41,13 @@ import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';   
     NavigationComponent,
     QcanvasComponent,
     QcreateComponent,
-    UserMenuComponent
-    //,    ChangePasswordComponent
+    UserMenuComponent,
+    CubeComponent,
+    ChangePasswordComponent,
+    MastersComponent
   ],
   imports: [
     BrowserModule,
-    
     AppRoutingModule,
     LayoutModule.forRoot(adminLteConf),   //Provide the configuration to the layout module.
     HttpClientModule,
@@ -52,7 +55,6 @@ import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';   
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     FormsModule
-    
   ],
   exports:[UserMenuComponent],
   providers: [UserService,AuthGuard, {
@@ -60,9 +62,7 @@ import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';   
     useClass: AuthInterceptor,
     multi: true
   }],
-  bootstrap: [AppComponent]
-  ,
-  
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
 
