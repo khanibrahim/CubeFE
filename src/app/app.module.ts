@@ -12,6 +12,7 @@ import { appRoutes } from './routes';
 import { AuthGuard } from './auth/auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { CustomMaterialModule } from './custom-material/custom-material.module';
 
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
@@ -54,7 +55,8 @@ import { MastersComponent } from './cube/masters/masters.component';   //Import 
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    CustomMaterialModule
   ],
   exports:[UserMenuComponent],
   providers: [UserService,AuthGuard, {
