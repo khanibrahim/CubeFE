@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface Food {
-  value: string;
-  viewValue: string;
-}
+import { QuestionmasterComponent } from './questionmaster/questionmaster.component'
 
 @Component({
   selector: 'app-masters',
@@ -12,12 +8,6 @@ export interface Food {
 })
 export class MastersComponent implements OnInit {
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
-  
   constructor() { }
 
   ngOnInit() {

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './modules/app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
@@ -12,7 +12,7 @@ import { appRoutes } from './routes';
 import { AuthGuard } from './auth/auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { CustomMaterialModule } from './custom-material/custom-material.module';
+import { CustomMaterialModule } from './modules/custom-material.module';
 
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
@@ -28,7 +28,8 @@ import { adminLteConf } from './admin-lte.conf';   //Import the layout configura
 import { LayoutModule } from 'angular-admin-lte';
 import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';
 import { CubeComponent } from './cube/cube.component';
-import { MastersComponent } from './cube/masters/masters.component';   //Import the layout module.
+import { MastersComponent } from './cube/masters/masters.component';
+import { QuestionmasterComponent } from './cube/masters/questionmaster/questionmaster.component';   //Import the layout module.
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { MastersComponent } from './cube/masters/masters.component';   //Import 
     UserMenuComponent,
     CubeComponent,
     ChangePasswordComponent,
-    MastersComponent
+    MastersComponent,
+    QuestionmasterComponent
   ],
   imports: [
     BrowserModule,
