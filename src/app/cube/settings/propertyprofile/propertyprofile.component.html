@@ -1,0 +1,55 @@
+<div class="form-control">
+  <br>
+  <h2>Profile Setting</h2>
+  <form #propertyForm class="example-form" style="width:100%">
+    <div class="row">
+      <div class="col col-sm-9">
+        <div class="row">
+          <div class="col col-sm-12">
+            <mat-form-field class="example-full-width" style="width:100%">
+              <input type="text" #NameField matInput placeholder="Institution Name">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-sm-12">
+            <mat-form-field class="example-full-width" style="width:100%">
+              <textarea #AddressField matInput placeholder="Address"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col col-sm-12">
+              <mat-form-field class="example-full-width" style="width:100%">
+                <textarea #DetailsField matInput placeholder="Details"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+      </div>
+      <div class="col col-sm-3">
+        <img style="width:100%" src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-2-1/512/cube-thin-512.png">
+        <input type="file" #logo>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-sm-4">
+        <mat-form-field class="example-full-width" style="width:100%">
+          <input type="text" #ContactNumberField matInput placeholder="Contact Number">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-4">
+        <mat-form-field class="example-full-width" style="width:100%">
+          <input type="text" #EmailIdField matInput placeholder="Email Id">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-4">
+        <mat-form-field class="example-full-width" style="width:100%">
+          <input type="text" #WebsiteField matInput placeholder="Website">
+        </mat-form-field>
+      </div>
+    </div>
+    <br>
+    <button type="button" (click)="alert('saved')" mat-raised-button>Save</button>
+    <br>
+  </form>
+</div>

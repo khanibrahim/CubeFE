@@ -9,7 +9,11 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { QBoardComponent } from './cube/qboard/qboard.component';
 import { CubeComponent } from './cube/cube.component';
 import { ChangePasswordComponent } from './user/change-password/change-password.component';
-import { MastersComponent } from './cube/masters/masters.component'
+import { MastersComponent } from './cube/settings/masters/masters.component'
+
+import { UserprofileComponent } from './cube/settings/userprofile/userprofile.component'
+import { PropertyprofileComponent } from './cube/settings/propertyprofile/propertyprofile.component'
+import { SettingsComponent } from './cube/settings/settings.component'
 
 export const appRoutes: Routes = [    
     {
@@ -30,13 +34,29 @@ export const appRoutes: Routes = [
                 //, canActivate: [AuthGuard] 
             },
             {
-                path: 'masters',
-                component: MastersComponent
-            },
-            {
                 path: 'qboard',
                 component: QBoardComponent
-            }
+            },
+            {
+                path: 'settings',
+                component: SettingsComponent,
+                children: [
+                    {
+                        path: 'masters',
+                        component: MastersComponent
+                    },
+                    {
+                        path: 'userprofile',
+                        component: UserprofileComponent
+                    },
+                    {
+                        path: 'propertyprofile',
+                        component: PropertyprofileComponent
+                    }
+                    
+                ]
+            },
+            
         ]
 
     },

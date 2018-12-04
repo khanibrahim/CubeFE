@@ -28,8 +28,11 @@ import { adminLteConf } from './admin-lte.conf';   //Import the layout configura
 import { LayoutModule } from 'angular-admin-lte';
 import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';
 import { CubeComponent } from './cube/cube.component';
-import { MastersComponent } from './cube/masters/masters.component';
-import { QuestionmasterComponent } from './cube/masters/questionmaster/questionmaster.component';   //Import the layout module.
+import { MastersComponent } from './cube/settings/masters/masters.component';
+import { QuestionmasterComponent } from './cube/settings/masters/questionmaster/questionmaster.component';
+import { SettingsComponent } from './cube/settings/settings.component';
+import { PropertyprofileComponent } from './cube/settings/propertyprofile/propertyprofile.component';
+import { UserprofileComponent } from './cube/settings/userprofile/userprofile.component';   //Import the layout module.
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import { QuestionmasterComponent } from './cube/masters/questionmaster/questionm
     CubeComponent,
     ChangePasswordComponent,
     MastersComponent,
-    QuestionmasterComponent
+    QuestionmasterComponent,
+    SettingsComponent,
+    PropertyprofileComponent,
+    UserprofileComponent
   ],
   imports: [
     BrowserModule,

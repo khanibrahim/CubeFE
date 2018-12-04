@@ -9,15 +9,17 @@
   </mk-layout-header>
   <mk-layout-sidebar-left></mk-layout-sidebar-left>
   <mk-layout-content>
-    <div *ngIf="router.url == '/cube/qboard'">
+    <!-- <div *ngIf="router.url == '/cube/qboard'">
       <app-qboard></app-qboard>
     </div>
-    <div *ngIf="router.url == '/cube/masters'">
-      <app-masters></app-masters>
+    <div *ngIf="router.url == '/cube/settings'">
+      <app-settings></app-settings>
     </div>
     <div *ngIf="router.url == '/cube/home'">
       <app-home></app-home>
-    </div>
+    </div> -->
+    <router-outlet></router-outlet>
+
   </mk-layout-content>
   <mk-layout-footer>
     <mk-layout-footer-left>

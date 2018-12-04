@@ -8,8 +8,9 @@ export var adminLteConf = {
     },
     {
       label: 'Settings', iconClasses: 'fa fa-cog', children: [
-        { label: 'Masters', iconClasses: 'fa fa-list', route: '/cube/masters' },
-        { label: 'User Profile', iconClasses: 'fa fa-user', route: '/login' }
+        { label: 'Masters', iconClasses: 'fa fa-list', route: '/cube/settings/masters' },
+        { label: 'User Profile', iconClasses: 'fa fa-user', route: '/cube/settings/userprofile' },
+        { label: 'Property Profile', iconClasses: 'fa fa-user', route: '/cube/settings/propertyprofile' }
       ]
     }
 

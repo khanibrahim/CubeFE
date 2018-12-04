@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Question, QuestionType, Subject, Board, Grade } from '../../../models/mastersmodels'
+import { Question, QuestionType, Subject, Board, Grade } from '../../../../models/mastersmodels'
 import { MatTable } from '@angular/material'
 
 @Component({
