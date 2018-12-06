@@ -1,0 +1,22 @@
+table
+{
+    width: 100%;
+}
+button
+{
+    color:white;
+    background: #3c8dbc;
+    margin: 0 3px;
+}
+mat-form-field
+{
+    width:100%
+}
+.row
+{
+    width: 100%;
+}
+.form-control
+{
+    min-height: 100vh;
+}

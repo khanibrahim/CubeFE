@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
   isLoginError : boolean = false;
-  constructor(private userService : UserService,private router : Router) { }
+  constructor(private userService : UserService, private router : Router) { }
 
   ngOnInit() {
   }
@@ -20,7 +20,7 @@ export class SignInComponent implements OnInit {
     debugger;
      this.userService.userAuthentication(userName,password).subscribe((data : any)=>{
       localStorage.setItem('userToken',data.access_token);
-      this.router.navigate(['/QBoard']);
+      this.router.navigate(['/qboard']);
     },
     (err : HttpErrorResponse)=>{
       this.isLoginError = true;

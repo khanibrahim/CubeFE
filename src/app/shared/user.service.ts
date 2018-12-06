@@ -7,9 +7,11 @@ import { User } from './user.model';
 import { HttpHeaders } from '@angular/common/http'
 import { retryWhen } from 'rxjs/operators';
 import { throwError } from "rxjs";
+import { environment } from '../../environments/environment';
 @Injectable()
 export class UserService {
-  readonly rootUrl = 'http://localhost:8086';
+
+  private rootUrl = environment.apiBaseUrl ;
   constructor(private http: HttpClient) { }
 
   registerUser(user : User){

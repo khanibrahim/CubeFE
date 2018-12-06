@@ -19,7 +19,7 @@ export class NavigationComponent implements OnInit {
     if(this.router.url == "/QBoard"){
       this.isQboard = true;
     }
-    if(this.router.url == "/Login"){
+    if(this.router.url == "/login"){
       this.isLogin = true;
     }
     if(this.router.url == "/Register"){

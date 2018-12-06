@@ -11,16 +11,12 @@ import { NgForm } from '@angular/forms';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  constructor(private userServer:UserService,private Router:Router) { }
+  constructor(private userservice: UserService, private Router: Router) { }
 
   ngOnInit() {
   }
-  OnSubmit(data:NgForm){
-console.log(data.value);
-debugger;
-this.userServer.changePassword(data).subscribe((data:any)=>{
- 
-
-})
+  OnSubmit(data: NgForm) {
+    this.userservice.changePassword(data).subscribe((data: any) => {
+    })
   }
 }
