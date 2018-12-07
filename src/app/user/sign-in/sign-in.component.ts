@@ -17,10 +17,9 @@ export class SignInComponent implements OnInit {
 
   OnSubmit(userName,password){
     console.log(userName,password);
-    debugger;
      this.userService.userAuthentication(userName,password).subscribe((data : any)=>{
       localStorage.setItem('userToken',data.access_token);
-      this.router.navigate(['/qboard']);
+      this.router.navigate(['/cube/home']);
     },
     (err : HttpErrorResponse)=>{
       this.isLoginError = true;

@@ -26,12 +26,13 @@ export const appRoutes: Routes = [
     },
     {
         path: 'cube', 
-        component: CubeComponent,
+        component: CubeComponent, 
+        canActivate: [AuthGuard] ,
         children: [
             { 
                 path: 'home', 
                 component: HomeComponent 
-                //, canActivate: [AuthGuard] 
+                , canActivate: [AuthGuard] 
             },
             {
                 path: 'qboard',
