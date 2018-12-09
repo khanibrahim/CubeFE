@@ -1,64 +1,114 @@
 <div class="form-control">
   <br>
-  <h2>Institution Details</h2>
   <form #propertyForm="ngForm" (ngSubmit)="onSubmit(propertyForm);" *ngIf="propertyClaims" class="example-form" style="width:100%">
-    <input type="hidden" name="Id" [ngModel]="propertyClaims.Id">
     <div class="row">
       <div class="col col-sm-9">
-        <div class="row">
-          <div class="col col-sm-12">
-            <mat-form-field class="example-full-width" style="width:100%">
-              <input type="text" [(ngModel)]="propertyClaims.Name" name="Name" #NameField matInput placeholder="Institution Name">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-sm-12">
-            <mat-form-field class="example-full-width" style="width:100%">
-              <input type="text" [(ngModel)]="propertyClaims.RUB" name="RUB" #RUBField matInput placeholder="Record Updated By">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-sm-12">
-            <mat-form-field class="example-full-width" style="width:100%">
-              <textarea #AddressField matInput placeholder="Address"></textarea>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-sm-12">
-            <mat-form-field class="example-full-width" style="width:100%">
-              <textarea #DetailsField matInput placeholder="Details"></textarea>
-            </mat-form-field>
-          </div>
-        </div>
+        <br><br>
+        <h2>Institution Details</h2>
       </div>
-      <div class="col col-sm-3">
-        <img style="width:100%" src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-2-1/512/cube-thin-512.png">
-        <input type="file" #logo>
+      <div class="col col-sm-3" style="text-align: center;">
+        <label for="logo" class="btn">Change Logo</label>
+        <img style="width:40%" [src]="propertyClaims.Logo">
+        <input id="logo" #logoField style="visibility: hidden;" (change)="onFileChange($event)" name="Logo" type="file">
       </div>
     </div>
+    <input type="hidden" name="Id" [ngModel]="propertyClaims.Id">
+    <input type="hidden" name="Logo" [ngModel]="propertyClaims.Logo">
+
+    <br>
+    <div class="row">
+      <div class="col col-sm-12">
+        <span class="ui-float-label">
+          <input type="text" size="120" [(ngModel)]="propertyClaims.Name" name="Name" #NameField pInputText>
+          <label for="float-input">Name</label>
+        </span>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col col-sm-12">
+        <span class="ui-float-label">
+          <input type="text" size="120" [(ngModel)]="propertyClaims.Slogan" name="Slogan" #SloganField pInputText>
+          <label for="float-input">Slogan</label>
+        </span>
+      </div>
+    </div>
+    <br>
     <div class="row">
       <div class="col col-sm-4">
-        <mat-form-field class="example-full-width" style="width:100%">
-          <input type="text" #ContactNumberField matInput placeholder="Contact Number">
-        </mat-form-field>
+        <span class="ui-float-label">
+          <input type="text" size="40" [(ngModel)]="propertyClaims.PhoneNo" name="PhoneNo" #PhoneNoField pInputText>
+          <label for="float-input">Phone Number</label>
+        </span>
       </div>
       <div class="col col-sm-4">
-        <mat-form-field class="example-full-width" style="width:100%">
-          <input type="text" #EmailIdField matInput placeholder="Email Id">
-        </mat-form-field>
-      </div>
-      <div class="col col-sm-4">
-        <mat-form-field class="example-full-width" style="width:100%">
-          <input type="text" #WebsiteField matInput placeholder="Website">
-        </mat-form-field>
+        <span class="ui-float-label">
+          <input type="text" size="40" [(ngModel)]="propertyClaims.Email" name="Email" #EmailField pInputText>
+          <label for="float-input">Email</label>
+        </span>
       </div>
     </div>
     <br>
-    <button type="submit" mat-raised-button>Update</button>
+    <div class="row">
+      <div class="col col-sm-4">
+        <span class="ui-float-label">
+          <input type="text" size="40" [(ngModel)]="propertyClaims.ContactPerson" name="ContactPerson"
+            #ContactPersonField pInputText>
+          <label for="float-input">Contact Person</label>
+        </span>
+      </div>
+      <div class="col col-sm-4">
+        <span class="ui-float-label">
+          <input type="text" size="40" [(ngModel)]="propertyClaims.Mobile" name="Mobile" #MobileField pInputText>
+          <label for="float-input">Mobile</label>
+        </span>
+      </div>
+    </div>
     <br>
+    <div class="row">
+      <div class="col col-sm-12">
+        <span class="ui-float-label">
+          <input type="text" size="120" [(ngModel)]="propertyClaims.Address1" name="Address1" #Address1Field pInputText>
+          <label for="float-input">Address1</label>
+        </span>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col col-sm-12">
+        <span class="ui-float-label">
+          <input type="text" size="120" [(ngModel)]="propertyClaims.Address2" name="Address2" #Address2Field pInputText>
+          <label for="float-input">Address2</label>
+        </span>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col col-sm-12">
+        <span class="ui-float-label">
+          <input type="text" size="120" [(ngModel)]="propertyClaims.Address3" name="Address3" #Address3Field pInputText>
+          <label for="float-input">Address3</label>
+        </span>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col col-sm-4">
+        <span class="ui-float-label">
+          <input type="text" size="40" [(ngModel)]="propertyClaims.City" name="City" #CityField pInputText>
+          <label for="float-input">City</label>
+        </span>
+      </div>
+      <div class="col col-sm-4">
+        <span class="ui-float-label">
+          <input type="text" size="40" [(ngModel)]="propertyClaims.Pincode" name="Pincode" #PincodeField pInputText>
+          <label for="float-input">Pin Code</label>
+        </span>
+      </div>
+    </div>
+    <br>
+    <button type="submit" pButton label="Update"></button>
+    <br><br>
   </form>
   <div *ngIf="!propertyClaims">
     No Property Assigned against this user, Please Contact Admin!

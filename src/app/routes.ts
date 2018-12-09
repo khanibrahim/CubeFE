@@ -10,6 +10,8 @@ import { QBoardComponent } from './cube/qboard/qboard.component';
 import { CubeComponent } from './cube/cube.component';
 import { ChangePasswordComponent } from './user/change-password/change-password.component';
 import { MastersComponent } from './cube/settings/masters/masters.component'
+import { QuestionmasterComponent } from './cube/settings/masters/questionmaster/questionmaster.component'
+
 
 import { UserprofileComponent } from './cube/settings/userprofile/userprofile.component'
 import { PropertyprofileComponent } from './cube/settings/propertyprofile/propertyprofile.component'
@@ -44,7 +46,13 @@ export const appRoutes: Routes = [
                 children: [
                     {
                         path: 'masters',
-                        component: MastersComponent
+                        component: MastersComponent,
+                        children: [
+                            {
+                                path: 'questions',
+                                component: QuestionmasterComponent
+                            }
+                        ]
                     },
                     {
                         path: 'userprofile',
