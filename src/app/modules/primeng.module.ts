@@ -4,6 +4,8 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import {InputTextModule} from 'primeng/inputtext';
 import {MenuModule} from 'primeng/menu';
 import {MenuItem} from 'primeng/api';
+import {TableModule} from 'primeng/table';
+
 
 
 @NgModule({
@@ -12,12 +14,14 @@ import {MenuItem} from 'primeng/api';
     CommonModule,
     SplitButtonModule,
     InputTextModule,
-    MenuModule
+    MenuModule,
+    TableModule
   ],
   exports: [
     SplitButtonModule,
     InputTextModule,
-    MenuModule
+    MenuModule,
+    TableModule
   ]
 })
 export class PrimengModule { }

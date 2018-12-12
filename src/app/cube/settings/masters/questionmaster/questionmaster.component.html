@@ -1,5 +1,48 @@
 <div class="form-control">
   <br>
+  <form *ngIf="viewForm" #QuestionForm="ngForm" class="example-form" style="width:80%">
+    <div class="row">
+      <div class="col s12">
+        <mat-form-field class="example-full-width" style="width:100%">
+          <textarea #QuestionField matInput required placeholder="Question"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <br>
+    <button type="submit" (click)="AddQuestion(QuestionField)" mat-raised-button>Add</button>
+    <button type="button" (click)="HideForm()" mat-raised-button>Done</button>
+    <br>
+  </form>
+  <div class="row">
+    <div class="col s10">
+    </div>
+    <div class="col s2">
+      <button *ngIf="!viewForm" style="float:right;" (click)="ShowForm()" mat-raised-button>Add New</button>
+    </div>
+  </div>
+  <br>
+  <p-table [value]="_questions">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width:50px">Id</th>
+        <th>Question</th>
+        <th style="width:150px">Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-question>
+      <tr>
+        <td>{{question.Id}}</td>
+        <td>{{question.question}}</td>
+        <td><p-button label="Delete" id={{question.Id}} (onClick)="DeleteQuestion(question.Id)"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+
+<!-- <div class="form-control">
+  <br>
   <form *ngIf="viewForm" #QuestionForm class="example-form" style="width:80%">
     <div class="row">
       <div class="col s12">
@@ -100,4 +143,4 @@
 
     </div>
   </div>
-</div>
+</div> -->
