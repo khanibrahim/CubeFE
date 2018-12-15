@@ -33,7 +33,8 @@ import { MastersComponent } from './cube/settings/masters/masters.component';
 import { QuestionmasterComponent } from './cube/settings/masters/questionmaster/questionmaster.component';
 import { SettingsComponent } from './cube/settings/settings.component';
 import { PropertyprofileComponent } from './cube/settings/propertyprofile/propertyprofile.component';
-import { UserprofileComponent } from './cube/settings/userprofile/userprofile.component';   //Import the layout module.
+import { UserprofileComponent } from './cube/settings/userprofile/userprofile.component';
+import { CourseComponent } from './cube/settings/masters/course/course.component';   //Import the layout module.
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { UserprofileComponent } from './cube/settings/userprofile/userprofile.co
     QuestionmasterComponent,
     SettingsComponent,
     PropertyprofileComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
