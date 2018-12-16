@@ -18,7 +18,8 @@ export class QuestionmasterComponent implements OnInit {
   constructor(private masterservice: MastersService) { }
 
   _questions: Question[];
-  _question: Question = { Id: undefined, question: "Question 4", RCB: 1, RUB: 1, RCT: "2018-12-12T00:08:38.607", RUT: "2018-12-12T00:08:38.607", IsActive: true };
+  _question: Question = { Id: undefined, question: "", RCB: 1, RUB: 1, RCT: "2018-12-12T00:08:38.607", RUT: "2018-12-12T00:08:38.607", IsActive: true };
+  //_question = new Question(undefined, "Question 4", 1, 1, "2018-12-12T00:08:38.607", "2018-12-12T00:08:38.607", true );
 
   @ViewChild(MatTable) table: MatTable<any>
 
@@ -27,21 +28,37 @@ export class QuestionmasterComponent implements OnInit {
   viewForm: boolean = false;
 
   ShowForm() {
+    this._question.question = "";
+    this._question.Id = undefined;
     this.viewForm = true;
   }
   HideForm() {
     this.viewForm = false;
   }
 
-  AddQuestion(QuestionField: any) {
-
+  AddQuestion() {
     if (this.form.valid) {
-      this._question.question = QuestionField.value;
-      this.masterservice.setQuestion(this._question).subscribe((data: Question[]) => {
-        this._questions = data;
-      })
+      console.log(this._question.Id);
+      if (this._question.Id == undefined || this._question.Id == null || this._question.Id == 0) {
+        this.masterservice.addQuestion(this._question).subscribe((data: Question[]) => {
+          this._questions = data;
+        })
+      }
+      else {
+        this.masterservice.editQuestion(this._question).subscribe((data: Question[]) => {
+          this._questions = data;
+        })
+      }
       this.form.reset();
     }
+  }
+
+  EditQuestion(Question: string, Id: number) {
+    this.viewForm = true;
+    //this.form.controls['QuestionField'].setValue(Id);
+
+    this._question.question = Question;
+    this._question.Id = Id;
   }
 
   DeleteQuestion(id) {
@@ -51,7 +68,6 @@ export class QuestionmasterComponent implements OnInit {
   }
 
   GetQuestionList() {
-
     this.masterservice.getQuestionList().subscribe((data: Question[]) => {
       this._questions = data;
     })

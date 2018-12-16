@@ -19,8 +19,12 @@ export class MastersService {
     return this.http.get(this.rootUrl + '/api/question');
   }
 
-  setQuestion(question: Question) {
+  addQuestion(question: Question) {
     return this.http.post(this.rootUrl + '/api/question', question);
+  }
+
+  editQuestion(question: Question) {
+    return this.http.put(this.rootUrl + '/api/question', question);
   }
 
   deleteQuestion(id: number) {
