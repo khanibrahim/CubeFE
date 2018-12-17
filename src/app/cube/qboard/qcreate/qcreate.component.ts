@@ -2,7 +2,7 @@ import { Component, OnInit, DoCheck, ViewChild } from '@angular/core';
 import { QserviceService } from '../qservice/qservice.service'
 import { SelectItem } from 'primeng/api';
 import { MatTable } from '@angular/material'
-import { Question, QuestionType, Subject, Board, Grade } from '../../../models/mastersmodels'
+import { Question, QuestionType, Subject } from '../../../models/mastersmodels'
 import { MastersService } from 'src/app/shared/masters.service';
 import { Subscription } from 'rxjs/Subscription';
 import { MenuItem } from 'primeng/api';

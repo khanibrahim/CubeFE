@@ -10,13 +10,22 @@
     </div>
   </div> -->
 
-  <div class="row" style="border-bottom:1px solid  gray; padding-top: 5px">
-    <div class="col col-sm-11" >
-     <h3 style="text-align:center"><strong>Q-Board</strong></h3>>
+  <div class="row" style="padding: 5px">
+    <div class="col col-sm-8">
+      <span class="ui-float-label">
+        <input id="float-input" type="text" size="100" pInputText [(ngModel)]="questionpaper.Name">
+        <label for="float-input">Name</label>
+      </span>
+    </div>
+    <div class="col col-sm-1">
+    </div>
+    <div class="col col-sm-2">
+      <p-dropdown [options]="subjects" (onChange)="SubjectChange($event)"
+        optionLabel="name"></p-dropdown>
     </div>
     <div class="col col-sm-1">
       <p-menu #menu [popup]="true" [model]="items"></p-menu>
-      <button type="button" pButton icon="pi pi-cog" label="Save" (click)="saveQuestionPaper()"></button>      
+      <button type="button" pButton icon="pi pi-cog" label="Save" (click)="saveQuestionPaper()"></button>
     </div>
   </div>
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTable } from '@angular/material'
 import { QserviceService } from './../qboard/qservice/qservice.service';
+import { QuestionPaper } from './../../models/mastersmodels'
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { QserviceService } from './../qboard/qservice/qservice.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  _questionpapers: any;
+  _questionpapers: QuestionPaper;
 
   constructor(private router: Router, private qservice: QserviceService) { }
 

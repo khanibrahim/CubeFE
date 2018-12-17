@@ -35,6 +35,7 @@ import { SettingsComponent } from './cube/settings/settings.component';
 import { PropertyprofileComponent } from './cube/settings/propertyprofile/propertyprofile.component';
 import { UserprofileComponent } from './cube/settings/userprofile/userprofile.component';
 import { CourseComponent } from './cube/settings/masters/course/course.component';
+import { SubjectmasterComponent } from './cube/settings/masters/subjectmaster/subjectmaster.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CourseComponent } from './cube/settings/masters/course/course.component
     SettingsComponent,
     PropertyprofileComponent,
     UserprofileComponent,
-    CourseComponent
+    CourseComponent,
+    SubjectmasterComponent
   ],
   imports: [
     BrowserModule,

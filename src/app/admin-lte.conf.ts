@@ -12,7 +12,7 @@ export var adminLteConf = {
           label: 'Masters', iconClasses: 'fa fa-list', children: [
             { label: 'Courses', iconClasses: 'fa fa-list', route: '/cube/settings/masters/courses' },
             { label: 'Subjects', iconClasses: 'fa fa-list', route: '/cube/settings/masters/subjects' },
-            { label: 'Lessons', iconClasses: 'fa fa-list', route: '/cube/settings/masters/lessons' },
+           // { label: 'Lessons', iconClasses: 'fa fa-list', route: '/cube/settings/masters/lessons' },
             { label: 'Questions', iconClasses: 'fa fa-list', route: '/cube/settings/masters/questions' }
           ]
         },

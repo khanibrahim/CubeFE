@@ -1,30 +1,39 @@
 import { base } from './base';
 
+export interface Course extends base {
+  Name: string;
+  Description: string;
+  PropertyId: number;
+}
+
+export interface Subject extends base {
+  Name: string;
+  Acronym: string;
+  Part:number;
+  CourseId:number;
+}
+
+export interface Lesson extends base {
+  Name: string;
+  Unit: number;
+  SubjectId:number;
+}
+
 export interface Question extends base {
-  question: string;
+  Question: string;
+  LessonId: number;
+  Type: number;
 }
 
 export interface QuestionPaper extends base {
-  html: string;
+  Name: string;
+  Html: string;
+  SubjectId: number;
 }
 
-export interface QuestionType {
-  code: string;
-  type: string;
+export interface QuestionType extends base {
+  Name: string;
 }
 
-export interface Board {
-  code: string;
-  name: string;
-}
 
-export interface Subject {
-  code: string;
-  name: string;
-  part: string;
-}
 
-export interface Grade {
-  code: string;
-  name: string;
-}
