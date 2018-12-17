@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../../shared/user.service';
+import { MatTable } from '@angular/material'
+import { QserviceService } from './../qboard/qservice/qservice.service';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +9,25 @@ import { UserService } from '../../shared/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  userClaims: any;
+  _questionpapers: any;
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private qservice: QserviceService) { }
 
   ngOnInit() {
-    this.userService.getUserClaims().subscribe((data: any) => {
-      this.userClaims = data;
+    this.qservice.getQuestionPaper().subscribe((data: any) => {
+      this._questionpapers = data;
     });
   }
 
-  Logout() {
-    localStorage.removeItem('userToken');
-    this.router.navigate(['/login']);
+  editQuestionPaper(questionpaper: string, id: number) {
+    this.qservice.setHtml(questionpaper);
+    this.router.navigate(['/cube/qboard']);
+  }
+
+  deleteQuestionPaper(id: number) {
+    console.log(id);
+    this.qservice.deleteQuestionPaper(id).subscribe((data: any) => {
+      this._questionpapers = data;
+    });
   }
 }

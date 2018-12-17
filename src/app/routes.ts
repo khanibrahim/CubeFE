@@ -34,7 +34,6 @@ export const appRoutes: Routes = [
             { 
                 path: 'home', 
                 component: HomeComponent 
-                , canActivate: [AuthGuard] 
             },
             {
                 path: 'qboard',

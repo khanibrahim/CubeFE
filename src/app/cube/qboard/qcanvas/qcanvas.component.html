@@ -1,3 +1,6 @@
-<h5 style="text-align:center"><strong>Preview</strong></h5>
+<!-- <h5 style="text-align:center"><strong>Preview</strong></h5> -->
 <br>
-<div>{{_html}}</div>
+<p-editor [(ngModel)]="_html" (onTextChange)="textChange($event.htmlValue)" [style]="{'height':'80vh'}"></p-editor>
+
+
+

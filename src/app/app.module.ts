@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,8 +34,7 @@ import { QuestionmasterComponent } from './cube/settings/masters/questionmaster/
 import { SettingsComponent } from './cube/settings/settings.component';
 import { PropertyprofileComponent } from './cube/settings/propertyprofile/propertyprofile.component';
 import { UserprofileComponent } from './cube/settings/userprofile/userprofile.component';
-import { CourseComponent } from './cube/settings/masters/course/course.component';   //Import the layout module.
-
+import { CourseComponent } from './cube/settings/masters/course/course.component';
 
 @NgModule({
   declarations: [
@@ -70,8 +69,8 @@ import { CourseComponent } from './cube/settings/masters/course/course.component
     CustomMaterialModule,
     PrimengModule
   ],
-  exports:[UserMenuComponent],
-  providers: [UserService,AuthGuard, {
+  exports: [UserMenuComponent],
+  providers: [UserService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

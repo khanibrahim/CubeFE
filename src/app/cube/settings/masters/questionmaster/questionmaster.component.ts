@@ -38,7 +38,6 @@ export class QuestionmasterComponent implements OnInit {
 
   AddQuestion() {
     if (this.form.valid) {
-      console.log(this._question.Id);
       if (this._question.Id == undefined || this._question.Id == null || this._question.Id == 0) {
         this.masterservice.addQuestion(this._question).subscribe((data: Question[]) => {
           this._questions = data;
@@ -54,6 +53,7 @@ export class QuestionmasterComponent implements OnInit {
   }
 
   EditQuestion(Question: string, Id: number) {
+    debugger;
     this.viewForm = true;
     //this.form.controls['QuestionField'].setValue(Id);
 

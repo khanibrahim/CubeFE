@@ -1,15 +1,11 @@
-export interface Question {
-  Id: number;
+import { base } from './base';
+
+export interface Question extends base {
   question: string;
-  IsActive: boolean;
-  RCB: number;
-  RCT: string;
-  RUB: number;
-  RUT: string;
-  // type: string;
-  // subject: string;
-  // grade: string;
-  // board: string;
+}
+
+export interface QuestionPaper extends base {
+  html: string;
 }
 
 export interface QuestionType {

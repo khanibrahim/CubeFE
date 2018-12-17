@@ -1,31 +1,52 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
+import { HttpClient } from '@angular/common/http'
+import { environment } from '../../../../environments/environment'
+import { QuestionPaper } from '../../../models/mastersmodels'
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class QserviceService {
 
-  constructor() { }
+    constructor(private http: HttpClient) { }
 
-  private subject = new Subject<any>();
+    rootUrl = environment.apiBaseUrl;
 
-  setHtml(_html: string) {
-      this.subject.next({ _html });
-  }
+    private subject = new Subject<any>();
 
-  clearHtml() {
-      this.subject.next();
-  }
+    setHtml(_html: string) {
+        this.subject.next({ _html });
+        console.log(_html);
+    }
 
-  setQuestion(_question:string,num:number)
-  {
-      localStorage.setItem("Question"+num,_question)
-  }
+    clearHtml() {
+        this.subject.next();
+    }
 
-  getHtml(): Observable<any> {
-      return this.subject.asObservable();
-  }
+    setQuestion(_question: string) {
+        localStorage.setItem("Question", _question)
+    }
+
+    getHtml(): Observable<any> {
+        return this.subject.asObservable();
+    }
+
+    saveQuestionPaper(questionpaper: QuestionPaper) {
+        return this.http.post(this.rootUrl + '/api/questionpaper', questionpaper);
+    }
+
+    getQuestionPaper() {
+        return this.http.get(this.rootUrl + '/api/questionpaper')
+    }
+    
+    updateQuestionPaper(questionpaper: QuestionPaper) {
+        return this.http.put(this.rootUrl + 'api/questionpaper', questionpaper)
+    }
+
+    deleteQuestionPaper(id: number) {
+        return this.http.delete(this.rootUrl + '/api/questionpaper/' + id);
+    }
 
 }

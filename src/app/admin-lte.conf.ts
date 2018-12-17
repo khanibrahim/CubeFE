@@ -1,7 +1,7 @@
 export var adminLteConf = {
   skin: 'blue',
   sidebarLeftMenu: [
-    { label: 'Home', route: 'cube/home', iconClasses: 'fa fa-th' },
+    { label: 'Home', route: '/cube/home', iconClasses: 'fa fa-th' },
     { label: 'MAIN NAVIGATION', separator: true },
     {
       label: 'Q-Board', iconClasses: 'fa fa-font', route: '/cube/qboard'

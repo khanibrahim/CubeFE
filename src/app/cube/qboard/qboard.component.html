@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <!-- <div class="row">
     <div class="col s9" style="border:1px solid  gray; border-radius: 5px;padding: 5px">
       <a (click)="alert('')" class="btn blue" style="float: right; margin-right:5px">Print</a>
       <a (click)="alert('')" class="btn red" style="float: right; margin-right:5px">Mail</a>
@@ -8,13 +8,23 @@
     <div class="col s3">
      
     </div>
+  </div> -->
+
+  <div class="row" style="border-bottom:1px solid  gray; padding-top: 5px">
+    <div class="col col-sm-11" >
+     <h3 style="text-align:center"><strong>Q-Board</strong></h3>>
+    </div>
+    <div class="col col-sm-1">
+      <p-menu #menu [popup]="true" [model]="items"></p-menu>
+      <button type="button" pButton icon="pi pi-cog" label="Save" (click)="saveQuestionPaper()"></button>      
+    </div>
   </div>
 
   <div class="row">
-    <div class="col s6">
+    <div class="col col-sm-6">
       <app-qcreate></app-qcreate>
     </div>
-    <div class="col s6 canvas">
+    <div class="col col-sm-6 canvas">
       <app-qcanvas></app-qcanvas>
     </div>
   </div>

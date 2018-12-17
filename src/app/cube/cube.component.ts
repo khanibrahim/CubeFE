@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuItem } from 'primeng/api';
+
 
 @Component({
   selector: 'app-cube',
@@ -10,7 +12,21 @@ export class CubeComponent implements OnInit {
 
   constructor(public router: Router) { }
 
+
+  items: MenuItem[];
+
   ngOnInit() {
+    this.items = [
+      { label: 'User Profile', icon: 'fa fa-user', routerLink: ['settings/userprofile'] },
+      { label: 'Property Profile', icon: 'fa fa-building', routerLink: ['settings/propertyprofile'] },
+      {
+        label: 'Logout', icon: 'fa fa-sign-out',  command: (event) => {
+          localStorage.setItem('userToken', null);
+          this.router.navigate(['../../login']);
+        }
+      }
+    ];
+
   }
 
 }

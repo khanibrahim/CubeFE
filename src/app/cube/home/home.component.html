@@ -1,23 +1,19 @@
-<nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">
-        <i class="material-icons">cloud</i>Dotnet Mob App</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          <a (click)="Logout()">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="row" *ngIf="userClaims">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-content">
-          <span>Username :{{userClaims.Name}}</span>
-          <br>
-          <span>Email : {{userClaims.GuestEmail}}</span>
-          <br>
-        </div>
-      </div>
-    </div>
-  </div>
+<p-table [value]="_questionpapers">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 50px">Id</th>
+      <th>Name</th>
+      <th style="width: 200px;">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-questionpaper>
+    <tr>
+      <td>{{questionpaper.Id}}</td>
+      <td>{{questionpaper.html}}</td>
+      <td>
+        <p-button style="margin-right:5px" label="Edit" id={{questionpaper.Id}} (onClick)="editQuestionPaper(questionpaper.html,questionpaper.Id)"></p-button>
+        <p-button label="Delete" id={{questionpaper.Id}} (onClick)="deleteQuestionPaper(questionpaper.Id)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
