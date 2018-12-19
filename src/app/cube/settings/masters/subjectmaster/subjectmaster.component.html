@@ -17,6 +17,12 @@
       <div class="col col-sm-1">
       </div>
       <div class="col col-sm-2">
+          <input type="text" size="20" [(ngModel)]="_subject.Part" required placeholder="Part" name="Part"
+          #PartField pInputText>
+      </div>
+      <div class="col col-sm-1">
+      </div>
+      <div class="col col-sm-2">
         <p-dropdown [options]="courses" (onChange)="CourseChange($event)" optionLabel="course"></p-dropdown>
       </div>
     </div>
@@ -50,9 +56,9 @@
         <td>{{subject.Name}}</td>
         <td>{{subject.Acronym}}</td>
         <td>{{subject.Part}}</td>
-        <td>{{subject.CourseId}}</td>
+        <td>{{getCourseName(subject.CourseId)}}</td>
         <td>
-          <p-button label="Edit" id={{subject.Id}} (onClick)="EditSubject(subject.Name,subject.Acronym,subject.CourseId,subject.Id)"></p-button>
+          <p-button label="Edit" id={{subject.Id}} (onClick)="EditSubject(subject.Name,subject.Acronym,subject.CourseId,subject.Id,subject.Part)"></p-button>
           <p-button label="Delete" id={{subject.Id}} (onClick)="DeleteSubject(subject.Id)"></p-button>
         </td>
       </tr>

@@ -3,9 +3,14 @@
   <form *ngIf="viewForm" #QuestionForm="ngForm" class="example-form" style="width:80%">
     <input type="hidden" name="Id" [(ngModel)]="_question.Id" #IdField>
     <div class="row">
-      <div class="col s12">
-        <input type="text" size="120" [(ngModel)]="_question.Question" required placeholder="Question" name="question"
+      <div class="col col-sm-8">
+        <input type="text" size="80" [(ngModel)]="_question.Question1" required placeholder="Question" name="question"
           #QuestionField pInputText>
+      </div>
+      <div class="col col-sm-1">
+      </div>
+      <div class="col col-sm-2">
+        <p-dropdown [options]="lessons" (onChange)="LessonChange($event)" [(ngModel)]="lesson" optionLabel="lesson"></p-dropdown>
       </div>
     </div>
     <br>
@@ -26,15 +31,19 @@
       <tr>
         <th style="width: 50px">Id</th>
         <th>Question</th>
+        <th>Lesson</th>
         <th style="width: 200px;">Action</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-question>
       <tr>
         <td>{{question.Id}}</td>
-        <td>{{question.question}}</td>
+        <td>{{question.Question1}}</td>
         <td>
-          <p-button label="Edit" id={{question.Id}} (onClick)="EditQuestion(question.question,question.Id)"></p-button>
+          {{getLessonName(question.LessonId)}}
+        </td>
+        <td>
+          <p-button label="Edit" id={{question.Id}} (onClick)="EditQuestion(question.Id)"></p-button>
           <p-button label="Delete" id={{question.Id}} (onClick)="DeleteQuestion(question.Id)"></p-button>
         </td>
       </tr>

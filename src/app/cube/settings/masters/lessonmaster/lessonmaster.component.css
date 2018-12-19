@@ -1,0 +1,23 @@
+table
+{
+    width: 100%;
+}
+button
+{
+    color:white;
+    background: #3c8dbc;
+    margin: 0 3px;
+}
+.row
+{
+    width: 100%;
+}
+.form-control
+{
+    min-height: 100vh;
+}
+
+p-button
+{
+    margin-right: 10px;
+}

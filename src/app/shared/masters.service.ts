@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment'
 import { Property } from '../models/property.model'
 import { Form, NgForm } from '@angular/forms';
-import { Question,Course,Subject,Lesson,QuestionType } from '../models/mastersmodels'
+import { Question, Course, Subject, Lesson } from '../models/mastersmodels'
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,7 @@ export class MastersService {
   }
 
 
-  
+
   getCourseList() {
     return this.http.get(this.rootUrl + '/api/course');
   }
@@ -62,6 +62,24 @@ export class MastersService {
 
   deleteSubject(id: number) {
     return this.http.delete(this.rootUrl + '/api/subject/' + id);
+  }
+
+
+
+  getLessonList() {
+    return this.http.get(this.rootUrl + '/api/lesson');
+  }
+
+  addLesson(lesson: Lesson) {
+    return this.http.post(this.rootUrl + '/api/lesson', lesson);
+  }
+
+  editLesson(lesson: Lesson) {
+    return this.http.put(this.rootUrl + '/api/lesson', lesson);
+  }
+
+  deleteLesson(id: number) {
+    return this.http.delete(this.rootUrl + '/api/lesson/' + id);
   }
 
 }

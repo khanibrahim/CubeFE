@@ -13,8 +13,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): 
     Observable<HttpEvent<any>> {
-        // Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
-        console.log(req.headers.get('No-Auth'))
         if (req.headers.get('No-Auth') == "True")
             return next.handle(req.clone()).do((event: HttpEvent<any>) => {
                 if (event instanceof HttpResponse) {

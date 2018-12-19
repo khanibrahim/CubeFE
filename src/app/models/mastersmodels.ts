@@ -20,7 +20,7 @@ export interface Lesson extends base {
 }
 
 export interface Question extends base {
-  Question: string;
+  Question1: string;
   LessonId: number;
   Type: number;
 }

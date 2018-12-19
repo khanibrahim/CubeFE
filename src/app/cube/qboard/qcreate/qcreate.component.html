@@ -1,8 +1,6 @@
-<h5 style="text-align:left"><strong>Controls</strong></h5>
+<!-- <h5 style="text-align:left"><strong>Controls</strong></h5> -->
 
-
-<!-- <input [(ngModel)]="_question" > -->
-<!-- <p-dropdown [options]="questions" [(ngModel)]="selectedQuestions" optionLabel="Question"></p-dropdown> -->
+<br>
 <p-table [value]="_questions">
     <ng-template pTemplate="header">
         <tr>
@@ -13,9 +11,9 @@
     </ng-template>
     <ng-template pTemplate="body" let-question>
         <tr>
-            <td>{{question.question}}</td>
+            <td>{{question.Question1}}</td>
             <td>
-                <p-button label="Add" id={{question.Id}} (onClick)="EditQuestion(question.question)"></p-button>
+                <p-button label="Add" id={{question.Id}} (onClick)="EditQuestion(question.Question1)"></p-button>
             </td>
         </tr>
     </ng-template>

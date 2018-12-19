@@ -4,11 +4,10 @@
     max-width: 100%;
 }
 
-.canvasboard
-{
-    height: 100vh;
-    background: #f5f5f5;
-    border: 2px dashed gray;
+.ui-menu.ui-menu-dynamic {
+    position: relative;
+    top: 0px !important;
+    left: -77px !important;
 }
 
 app-qcanvas,app-qcreate {

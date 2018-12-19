@@ -37,16 +37,24 @@ export class QserviceService {
         return this.http.post(this.rootUrl + '/api/questionpaper', questionpaper);
     }
 
-    getQuestionPaper() {
+    getQuestionPaperList() {
         return this.http.get(this.rootUrl + '/api/questionpaper')
     }
-    
+
+    getQuestionPaper(Id: number) {
+        return this.http.get(this.rootUrl + '/api/questionpaper/' + Id)
+    }
+
     updateQuestionPaper(questionpaper: QuestionPaper) {
-        return this.http.put(this.rootUrl + 'api/questionpaper', questionpaper)
+        return this.http.put(this.rootUrl + '/api/questionpaper', questionpaper)
     }
 
     deleteQuestionPaper(id: number) {
         return this.http.delete(this.rootUrl + '/api/questionpaper/' + id);
+    }
+
+    emailQuestionPaper(Id: number){
+        return this.http.get(this.rootUrl + '/api/sendmail/' + Id)
     }
 
 }

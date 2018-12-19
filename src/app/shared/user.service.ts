@@ -20,9 +20,10 @@ export class UserService {
       'password': user.password,
       'email': user.email,
       'roleName': user.roleName,
-      'confirmPassword': user.confirmPassword
-      , 'newPassword': user.newPassword,
-      'oldPassword': user.oldPassword
+      'confirmPassword': user.confirmPassword,
+      'newPassword': user.newPassword,
+      'oldPassword': user.oldPassword,
+      'PropertyId': 0
     }
     console.log(user)
     //  var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json' });

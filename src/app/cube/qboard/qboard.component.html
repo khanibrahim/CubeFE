@@ -11,22 +11,34 @@
   </div> -->
 
   <div class="row" style="padding: 5px">
-    <div class="col col-sm-8">
+    <div class="col col-sm-7">
       <span class="ui-float-label">
-        <input id="float-input" type="text" size="100" pInputText [(ngModel)]="questionpaper.Name">
+        <input id="float-input" type="text" size="80" pInputText [(ngModel)]="questionpaper.Name">
         <label for="float-input">Name</label>
       </span>
     </div>
     <div class="col col-sm-1">
     </div>
-    <div class="col col-sm-2">
-      <p-dropdown [options]="subjects" (onChange)="SubjectChange($event)"
-        optionLabel="name"></p-dropdown>
+    <div class="col col-sm-2" *ngIf="subjects.length > 0">
+      <p-dropdown [options]="subjects" (onChange)="SubjectChange($event)" optionLabel="subject"></p-dropdown>
     </div>
     <div class="col col-sm-1">
-      <p-menu #menu [popup]="true" [model]="items"></p-menu>
-      <button type="button" pButton icon="pi pi-cog" label="Save" (click)="saveQuestionPaper()"></button>
     </div>
+    <div class="col col-sm-1">
+      <button type="button" pButton icon="fa fa-fw fa-list" label="More" (click)="menu.toggle($event)"></button>
+      <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    </div>
+
+    <!-- <div class="col col-sm-1">
+      <button type="button" pButton icon="pi pi-save" label="Save" (click)="saveQuestionPaper()"></button>
+    </div>
+
+    <div class="col col-sm-1">
+      <button type="button" pButton icon="pi pi-print" label="Print" (click)="printQuestionPaper()"></button>
+    </div> -->
+    <!-- <div class="col col-sm-1">
+      <button type="button" pButton icon="pi pi-envelope" label="Email" (click)="mailQuestionPaper()"></button>
+    </div> -->
   </div>
 
   <div class="row">

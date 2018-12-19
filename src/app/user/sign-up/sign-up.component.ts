@@ -27,9 +27,10 @@ export class SignUpComponent implements OnInit {
       roleName: '',
       email: '',
       password: '',
-      confirmPassword: ''
-      ,newPassword:'',
-      oldPassword:''
+      confirmPassword: '',
+      newPassword: '',
+      oldPassword: '',
+      PropertyId: 0
     }
   }
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatTable } from '@angular/material'
 import { QserviceService } from './../qboard/qservice/qservice.service';
 import { QuestionPaper } from './../../models/mastersmodels'
 
@@ -15,18 +14,16 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private qservice: QserviceService) { }
 
   ngOnInit() {
-    this.qservice.getQuestionPaper().subscribe((data: any) => {
+    this.qservice.getQuestionPaperList().subscribe((data: any) => {
       this._questionpapers = data;
     });
   }
 
-  editQuestionPaper(questionpaper: string, id: number) {
-    this.qservice.setHtml(questionpaper);
-    this.router.navigate(['/cube/qboard']);
+  editQuestionPaper(Id: number) {
+    this.router.navigate(['/cube/qboard/' + Id]);
   }
 
   deleteQuestionPaper(id: number) {
-    console.log(id);
     this.qservice.deleteQuestionPaper(id).subscribe((data: any) => {
       this._questionpapers = data;
     });

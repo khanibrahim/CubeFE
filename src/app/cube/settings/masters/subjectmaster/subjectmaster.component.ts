@@ -29,6 +29,7 @@ export class SubjectmasterComponent implements OnInit {
     this._subject.Acronym = "";
     this._subject.CourseId = undefined;
     this._subject.Id = undefined;
+    this._subject.Part = undefined;
     this.viewForm = true;
   }
 
@@ -57,10 +58,12 @@ export class SubjectmasterComponent implements OnInit {
     }
   }
 
-  EditSubject(Name: string, Acronym: string, CourseId: number, Id: number) {
+  EditSubject(Name: string, Acronym: string, CourseId: number, Id: number, Part: number) {
     this.viewForm = true;
     this._subject.Name = Name;
     this._subject.Acronym = Acronym;
+    this._subject.Part = Part;
+    console.log(Part);
     this._subject.Id = Id;
     this._subject.CourseId = CourseId;
   }
@@ -77,22 +80,28 @@ export class SubjectmasterComponent implements OnInit {
     })
   }
 
+  getCourseName(Id: number) {
+    return this._courses.find(o => o.Id === Id).Name;
+  }
+
   SetCourses(data: any[]) {
     console.log(data.length);
     data.forEach(function (value, index) {
       console.log(value);
       this.courses.push({ course: value.Name, code: value.Id })
-    },this)
+    }, this)
   }
 
   ngOnInit() {
 
     this.GetSubjectList();
+
     this.masterservice.getCourseList().subscribe((data: Course[]) => {
       this._courses = data;
       console.log(this._courses)
       this.SetCourses(this._courses);
     })
+
   }
 
 }

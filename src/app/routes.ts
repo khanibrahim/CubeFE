@@ -11,6 +11,7 @@ import { MastersComponent } from './cube/settings/masters/masters.component'
 import { QuestionmasterComponent } from './cube/settings/masters/questionmaster/questionmaster.component'
 import { CourseComponent } from './cube/settings/masters/course/course.component'
 import { SubjectmasterComponent } from './cube/settings/masters/subjectmaster/subjectmaster.component';
+import { LessonmasterComponent } from './cube/settings/masters/lessonmaster/lessonmaster.component';
 
 
 import { UserprofileComponent } from './cube/settings/userprofile/userprofile.component'
@@ -40,6 +41,10 @@ export const appRoutes: Routes = [
                 component: QBoardComponent
             },
             {
+                path: 'qboard/:id',
+                component: QBoardComponent
+            },
+            {
                 path: 'settings',
                 component: SettingsComponent,
                 children: [
@@ -58,6 +63,10 @@ export const appRoutes: Routes = [
                             {
                                 path: 'subjects',
                                 component: SubjectmasterComponent
+                            },
+                            {
+                                path: 'lessons',
+                                component: LessonmasterComponent
                             }
                         ]
                     },

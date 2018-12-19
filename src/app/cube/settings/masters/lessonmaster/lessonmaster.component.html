@@ -1,0 +1,59 @@
+<div class="form-control">
+  <br>
+  <form *ngIf="viewForm" #LessonForm="ngForm" class="example-form" style="width:80%">
+    <input type="hidden" name="Id" [(ngModel)]="_lesson.Id" #IdField>
+    <div class="row">
+      <div class="col s12">
+        <input type="text" size="120" [(ngModel)]="_lesson.Name" required placeholder="Name" name="Name" #NameField
+          pInputText>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col col-sm-2">
+        <input type="text" size="20" [(ngModel)]="_lesson.Unit" required placeholder="Unit" name="Unit" #UnitField
+          pInputText>
+      </div>
+      <div class="col col-sm-1">
+      </div>
+      <div class="col col-sm-2">
+        <p-dropdown [options]="subjects" (onChange)="SubjectChange($event)" optionLabel="subject"></p-dropdown>
+      </div>
+    </div>
+    <br>
+    <button type="submit" (click)="AddLesson()" mat-raised-button>Save</button>
+    <button type="button" (click)="HideForm()" mat-raised-button>Close</button>
+    <br>
+  </form>
+  <div class="row">
+    <div class="col s10">
+    </div>
+    <div class="col s2">
+      <button *ngIf="!viewForm" style="float:right;" (click)="ShowForm()" mat-raised-button>Add New</button>
+    </div>
+  </div>
+  <br>
+  <p-table [value]="_lessons">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 50px">Id</th>
+        <th>Name</th>
+        <th>Unit</th>
+        <th>Subject</th>
+        <th style="width: 200px;">Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-lesson>
+      <tr>
+        <td>{{lesson.Id}}</td>
+        <td>{{lesson.Name}}</td>
+        <td>{{lesson.Unit}}</td>
+        <td>{{getSubjectName(lesson.SubjectId)}}</td>
+        <td>
+          <p-button label="Edit" id={{lesson.Id}} (onClick)="EditLesson(lesson.Name,lesson.Unit,lesson.SubjectId,lesson.Id)"></p-button>
+          <p-button label="Delete" id={{lesson.Id}} (onClick)="DeleteLesson(lesson.Id)"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
