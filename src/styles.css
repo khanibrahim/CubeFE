@@ -4,7 +4,8 @@
 @import '../node_modules/primeng/resources/themes/nova-light/theme.css';
 @import '../node_modules/primeng/resources/primeng.min.css';
 @import '../node_modules/primeicons/primeicons.css';
-
+ @import '../node_modules/quill/dist/quill.core.css'; 
+@import '../node_modules/quill/dist/quill.snow.css';
 .ui-menu.ui-menu-dynamic {
     position: relative;
     top: 90px !important;
