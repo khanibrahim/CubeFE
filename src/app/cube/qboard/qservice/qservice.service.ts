@@ -18,11 +18,10 @@ export class QserviceService {
 
     setHtml(_html: string) {
         this.subject.next({ _html });
-        console.log(_html);
     }
 
     clearHtml() {
-        this.subject.next();
+        this.subject.next("&nbsp;<br>");
     }
 
     setQuestion(_question: string) {

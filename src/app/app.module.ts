@@ -14,6 +14,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { CustomMaterialModule } from './modules/custom-material.module';
 import { PrimengModule } from './modules/primeng.module';
+import {HttpModule} from '@angular/http';
 
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
@@ -64,14 +65,15 @@ import { LessonmasterComponent } from './cube/settings/masters/lessonmaster/less
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule.forRoot(adminLteConf),   //Provide the configuration to the layout module.
+    LayoutModule.forRoot(adminLteConf),
     HttpClientModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     FormsModule,
     CustomMaterialModule,
-    PrimengModule
+    PrimengModule,
+    HttpModule
   ],
   exports: [UserMenuComponent],
   providers: [UserService, AuthGuard, {

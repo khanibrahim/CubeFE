@@ -22,6 +22,10 @@ export class HomeComponent implements OnInit {
   editQuestionPaper(Id: number) {
     this.router.navigate(['/cube/qboard/' + Id]);
   }
+  
+  addQuestionPaper(){
+    this.router.navigate(['/cube/qboard']);
+  }
 
   deleteQuestionPaper(id: number) {
     this.qservice.deleteQuestionPaper(id).subscribe((data: any) => {

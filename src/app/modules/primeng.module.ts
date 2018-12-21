@@ -7,6 +7,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { EditorModule } from 'primeng/editor';
 import { SharedModule } from "primeng/components/common/shared";
+import {PanelMenuModule} from 'primeng/panelmenu';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ToastModule} from 'primeng/toast';
+import {SidebarModule} from 'primeng/sidebar';
+import {ToolbarModule} from 'primeng/toolbar';
+import {FileUploadModule} from 'primeng/fileupload';
+import {GalleriaModule} from 'primeng/galleria';
+
 
 @NgModule({
   declarations: [],
@@ -18,7 +26,14 @@ import { SharedModule } from "primeng/components/common/shared";
     TableModule,
     EditorModule,
     DropdownModule,
-    SharedModule
+    SharedModule,
+    PanelMenuModule,
+    ConfirmDialogModule,
+    ToastModule,
+    SidebarModule,
+    ToolbarModule,
+    FileUploadModule,
+    GalleriaModule
   ],
   exports: [
     SplitButtonModule,
@@ -27,7 +42,14 @@ import { SharedModule } from "primeng/components/common/shared";
     TableModule,
     EditorModule,
     DropdownModule,
-    SharedModule
+    SharedModule,
+    PanelMenuModule,
+    ConfirmDialogModule,
+    ToastModule,
+    SidebarModule,
+    ToolbarModule,
+    FileUploadModule,
+    GalleriaModule
   ]
 })
 export class PrimengModule { }

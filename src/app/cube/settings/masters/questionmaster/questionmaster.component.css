@@ -21,3 +21,13 @@ p-button
 {
     margin-right: 10px;
 }
+
+.images
+{
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+.images:hover{
+    background: #e2e0e0;
+}

@@ -1,17 +1,7 @@
+<p-toast></p-toast>
 <div class="container">
-  <!-- <div class="row">
-    <div class="col s9" style="border:1px solid  gray; border-radius: 5px;padding: 5px">
-      <a (click)="alert('')" class="btn blue" style="float: right; margin-right:5px">Print</a>
-      <a (click)="alert('')" class="btn red" style="float: right; margin-right:5px">Mail</a>
-      <a (click)="alert('')" class="btn green" style="float: right; margin-right:5px">Save</a>
-    </div>
-    <div class="col s3">
-     
-    </div>
-  </div> -->
-
   <div class="row" style="padding: 5px">
-    <div class="col col-sm-7">
+    <div class="col col-sm-6">
       <span class="ui-float-label">
         <input id="float-input" type="text" size="80" pInputText [(ngModel)]="questionpaper.Name">
         <label for="float-input">Name</label>
@@ -25,28 +15,20 @@
     <div class="col col-sm-1">
     </div>
     <div class="col col-sm-1">
-      <button type="button" pButton icon="fa fa-fw fa-list" label="More" (click)="menu.toggle($event)"></button>
-      <p-menu #menu [popup]="true" [model]="items"></p-menu>
+      <p-panelMenu [model]="items" [style]="{'width':'150px'}"></p-panelMenu>
     </div>
-
-    <!-- <div class="col col-sm-1">
-      <button type="button" pButton icon="pi pi-save" label="Save" (click)="saveQuestionPaper()"></button>
-    </div>
-
     <div class="col col-sm-1">
-      <button type="button" pButton icon="pi pi-print" label="Print" (click)="printQuestionPaper()"></button>
-    </div> -->
-    <!-- <div class="col col-sm-1">
-      <button type="button" pButton icon="pi pi-envelope" label="Email" (click)="mailQuestionPaper()"></button>
-    </div> -->
+    </div>
   </div>
 
   <div class="row">
-    <div class="col col-sm-6">
+    <div [class]="orientationMeasure.controls">
       <app-qcreate></app-qcreate>
     </div>
-    <div class="col col-sm-6 canvas">
+    <div [class]="orientationMeasure.canvas">
       <app-qcanvas></app-qcanvas>
     </div>
   </div>
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
 </div>
