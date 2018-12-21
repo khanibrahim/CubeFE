@@ -1,3 +1,45 @@
-<p>
-  userprofile works!
-</p>
+<div class="form-control">
+  <br>
+  <form #userProfileForm="ngForm" (ngSubmit)="onSubmit(userProfileForm);" *ngIf="item" class="example-form" style="width:100%">
+    <div class="row">
+      <div class="col col-md-4">
+        <br><br>
+        <h2>User Details</h2>
+      </div>
+    
+    </div>
+    <input type="hidden"  name="UserId" [ngModel]="item.UserId">
+
+    <br>
+    <div class="row">
+      <div class="col col-md-4">
+        <span class="ui-float-label">
+          <input type="text" readonly="readonly" size="120" [(ngModel)]="item.Username" name="Username" #NameField pInputText>
+          <label for="float-input">User Name</label>
+        </span>
+      </div>
+    
+    </div>
+    <br>
+    <div class="row">
+      <div class="col col-sm-4">
+        <span class="ui-float-label">
+          <input type="text" size="40" [(ngModel)]="item.MobileNo" name="MobileNo" #PhoneNoField pInputText>
+          <label for="float-input">Mobile Number</label>
+        </span>
+      </div>
+      <div class="col col-sm-4">
+        <span class="ui-float-label">
+          <input type="text" size="40" [(ngModel)]="item.Email" name="Email" #EmailField pInputText>
+          <label for="float-input">Email</label>
+        </span>
+      </div>
+    </div>
+    
+    <br><br>  
+    <button type="submit" pButton label="Update"></button>
+    <br><br>
+  </form>
+  
+
+</div>

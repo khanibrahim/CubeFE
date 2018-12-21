@@ -49,7 +49,16 @@ export class UserService {
     console.log(body)
     return this.http.post(this.rootUrl + '/api/Account/ChangePassword', body);
   }
+  getCurrentUser() {
+    return this.http.get(this.rootUrl + '/api/Account/getCurrentUser');
+  }
 
+  updateUserDetail(user) {
+    console.log(user);
+    var body= {UserId:user.UserId,Email:user.Email,MobileNo:user.MobileNo};
+    console.log(body);
+    return this.http.put(this.rootUrl + '/api/Account/UpdateUserdetail',body);
+  }
   private handleError(errorResponse: HttpErrorResponse) {
     if (errorResponse.error instanceof ErrorEvent) {
 
