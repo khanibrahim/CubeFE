@@ -38,6 +38,9 @@ import { UserprofileComponent } from './cube/settings/userprofile/userprofile.co
 import { CourseComponent } from './cube/settings/masters/course/course.component';
 import { SubjectmasterComponent } from './cube/settings/masters/subjectmaster/subjectmaster.component';
 import { LessonmasterComponent } from './cube/settings/masters/lessonmaster/lessonmaster.component';
+//import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CKEditorModule } from 'ng2-ckeditor';
+
 
 @NgModule({
   declarations: [
@@ -73,7 +76,8 @@ import { LessonmasterComponent } from './cube/settings/masters/lessonmaster/less
     FormsModule,
     CustomMaterialModule,
     PrimengModule,
-    HttpModule
+    HttpModule,
+    CKEditorModule
   ],
   exports: [UserMenuComponent],
   providers: [UserService, AuthGuard, {

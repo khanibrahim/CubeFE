@@ -91,7 +91,7 @@ export const appRoutes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/cube',
+        redirectTo: '/cube/home',
         pathMatch: 'full'
     }
 ];

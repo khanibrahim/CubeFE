@@ -33,6 +33,18 @@ export class QBoardComponent implements OnInit {
   editMode: boolean = false;
   questionpaper: QuestionPaper = { Id: 0, Name: "", Html: "", SubjectId: 0, RCB: 0, RUB: 0, RCT: "2018-12-12T00:08:38.607", RUT: "2018-12-12T00:08:38.607", IsActive: true };
   orientationMeasure: any = { controls: "col col-sm-6", canvas: "canvas col col-sm-6" }
+  togglelayout: boolean = true;
+
+  toggleLayout() {
+    if (this.togglelayout) {
+      this.setOrientation("canvas");
+      this.togglelayout = !this.togglelayout;
+    }
+    else {
+      this.setOrientation("split");
+      this.togglelayout = !this.togglelayout;
+    }
+  }
 
   saveQuestionPaper() {
     if (this.questionpaper.Id != undefined) {
@@ -48,7 +60,7 @@ export class QBoardComponent implements OnInit {
 
   printQuestionPaper() {
     var x = window.open();
-    x.document.open().write(this.questionpaper.Html + '<script>print() </script>');
+    x.document.open().write(this.cssforckeditor + this.questionpaper.Html + '<script>print() </script>');
   }
 
   mailQuestionPaper() {
@@ -87,7 +99,7 @@ export class QBoardComponent implements OnInit {
   setMenue() {
     this.items = [
       {
-        label: 'Actions',
+        label: '',
         icon: 'pi pi-fw pi-cog',
         items: [
           {
@@ -114,27 +126,6 @@ export class QBoardComponent implements OnInit {
             label: 'Email', icon: 'fa fa-envelope', command: (event) => {
               this.mailQuestionPaper();
             }
-          },
-          {
-            label: 'Orientation',
-            icon: 'fa fa-chevron-right',
-            items: [
-              {
-                label: 'Contrils Only', icon: 'fa fa-cog', command: (event) => {
-                  this.setOrientation("controls");
-                }
-              },
-              {
-                label: 'Canvas Only', icon: 'fa fa-edit', command: (event) => {
-                  this.setOrientation("canvas");
-                }
-              },
-              {
-                label: 'Split', icon: 'fa fa-columns', command: (event) => {
-                  this.setOrientation("split");
-                }
-              }
-            ]
           }
         ]
       }
@@ -165,7 +156,7 @@ export class QBoardComponent implements OnInit {
       })
     }
     else {
-      this.service.setHtml("<h2 class='ql-align-center'><strong>College Name</strong></h2><p class='ql-align-center'><br></p><p><strong>Subject:  _________</strong></p><p><strong>Time:____________</strong></p><p><strong>Venue: ___________</strong></p><p class='ql-align-center'><strong>---------------------------------------------------------------------------------------------------</strong></p>");
+      this.service.setHtml("<h3 style='text-align:center;'>College Name</h3><p><span class='text-small'><strong>Subject: _________</strong></span><br><span class='text-small'><strong>Time: ____________</strong></span><br><span class='text-small'><strong>Venue: ___________</strong></span></p><p style='text-align:center;'><strong>--------------------------------------------------------------------------------------------------------------------</strong></p>");
     }
 
     this.masterservice.getSubjectList().subscribe((data: Subject[]) => {
@@ -176,6 +167,8 @@ export class QBoardComponent implements OnInit {
 
     this.setMenue();
   }
+
+  cssforckeditor: string = `<style type='text/css'>.image-style-align-right{float:right;}</style>`;
 }
 
 

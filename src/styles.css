@@ -7,10 +7,18 @@
 @import '../node_modules/quill/dist/quill.core.css'; 
 @import '../node_modules/quill/dist/quill.snow.css';
 
-.ui-toast
+
+body .ui-toolbar {
+    background-color: #3c8dbc;
+    border: 0px solid #c8c8c8;
+    padding: 0.571em 1em;
+}
+
+.ui-toast,.ui-sidebar-right
 {
     z-index: 99999999 !important;
 }
+
 .ui-panelmenu,.ui-panelmenu-content-wrapper,.p-panelmenu{
     width:100% !important;
 }

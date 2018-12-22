@@ -1,6 +1,29 @@
 <!-- <h5 style="text-align:center"><strong>Preview</strong></h5> -->
 <br>
-<p-editor [(ngModel)]="_html" (onTextChange)="textChange($event.htmlValue)" [style]="{'height':'80vh'}"></p-editor>
+<!-- <ckeditor [editor]="Editor"  [(ngModel)]="_html" (ngModelChange)="textChange($event)" (ready)="onReady($event)"></ckeditor> -->
+<ckeditor
+    [(ngModel)]="_html"
+    [config]="{uiColor: '#ffffff'}"
+    [readonly]="false"
+    (change)="onChange($event)"
+    (editorChange)="onEditorChange($event)"
+    (ready)="onReady($event)"
+    (focus)="onFocus($event)"
+    (blur)="onBlur($event)"
+    (contentDom)="onContentDom($event)"
+    (fileUploadRequest)="onFileUploadRequest($event)"
+    (fileUploadResponse)="onFileUploadResponse($event)"
+    (paste)="onPaste($event)"
+    (drop)="onDrop($event)"
+    debounce="500">
+    <ckbutton [name]="'saveButton'"
+    [command]="'saveCmd'"
+    [icon]="'save.png'"
+    [label]="'Save Document'"
+    [toolbar]="'clipboard,1'">
+  </ckbutton>
+  </ckeditor>
+<!-- <p-editor [(ngModel)]="_html" (onTextChange)="textChange($event.htmlValue)" [style]="{'height':'50vh'}"></p-editor> -->
 
 
 
