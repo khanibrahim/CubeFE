@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { QserviceService } from '../qservice/qservice.service'
 import { Question } from '../qquestion'
 import { Subscription } from 'rxjs/Subscription';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 
 @Component({
@@ -23,15 +22,31 @@ export class QcanvasComponent implements OnInit, OnDestroy {
   }
 
 
-  onChange(event:Event){}
-  onEditorChange(event:Event){}
-  onFocus(event:Event){}
-  onBlur(event:Event){}
-  onContentDom(event:Event){}
-  onFileUploadRequest(event:Event){}
-  onFileUploadResponse(event:Event){}
-  onPaste(event:Event){}
-  onDrop(event:Event){}
+  // onChange(event:Event){}
+  // onEditorChange(event:Event){}
+  // onFocus(event:Event){}
+  // onBlur(event:Event){}
+  // onContentDom(event:Event){}
+  // onFileUploadRequest(event:Event){}
+  // onFileUploadResponse(event:Event){}
+  // onPaste(event:Event){}
+  // onDrop(event:Event){}
+
+  onChange(html: string) {
+    console.log(html);
+    if (html != null)
+      this.qService.setHtml(html)
+    else
+      this.qService.setHtml("")
+  }
+  onEditorChange(event: Event) { { console.log(event) } }
+  onFocus(event: Event) { console.log(event) }
+  onBlur(event: Event) { console.log(event) }
+  onContentDom(event: Event) { console.log(event) }
+  onFileUploadRequest(event: Event) { console.log(event) }
+  onFileUploadResponse(event: Event) { console.log(event) }
+  onPaste(event: Event) { console.log(event) }
+  onDrop(event: Event) { console.log(event) }
 
 
 
