@@ -7,8 +7,8 @@ import { Form } from '@angular/forms';
 
 @Component({
   selector: 'app-course',
-  templateUrl: './course.component.html',
-  styleUrls: ['./course.component.css']
+  templateUrl: './coursemaster.component.html',
+  styleUrls: ['./coursemaster.component.css']
 })
 export class CourseComponent implements OnInit {
 

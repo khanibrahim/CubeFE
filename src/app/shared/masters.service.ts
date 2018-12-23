@@ -13,8 +13,8 @@ export class MastersService {
   private rootUrl = environment.apiBaseUrl;
   constructor(private http: HttpClient) { }
 
-  getQuestionList() {
-    return this.http.get(this.rootUrl + '/api/question');
+  getQuestionList(parameters:string) {
+    return this.http.get(this.rootUrl + '/api/question?'+parameters);
   }
 
   addQuestion(question: Question) {

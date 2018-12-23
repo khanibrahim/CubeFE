@@ -14,7 +14,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { CustomMaterialModule } from './modules/custom-material.module';
 import { PrimengModule } from './modules/primeng.module';
-import {HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
@@ -26,19 +26,18 @@ import { QcanvasComponent } from './cube/qboard/qcanvas/qcanvas.component';
 import { QcreateComponent } from './cube/qboard/qcreate/qcreate.component';
 import { ChangePasswordComponent } from './user/change-password/change-password.component';
 
-import { adminLteConf } from './admin-lte.conf';   //Import the layout configuration.
-import { LayoutModule } from 'angular-admin-lte';
-import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';
+import { adminLteConf } from './admin-lte.conf';  
+//import { LayoutModule } from 'angular-admin-lte';
+//import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';
 import { CubeComponent } from './cube/cube.component';
 import { MastersComponent } from './cube/settings/masters/masters.component';
 import { QuestionmasterComponent } from './cube/settings/masters/questionmaster/questionmaster.component';
 import { SettingsComponent } from './cube/settings/settings.component';
 import { PropertyprofileComponent } from './cube/settings/propertyprofile/propertyprofile.component';
 import { UserprofileComponent } from './cube/settings/userprofile/userprofile.component';
-import { CourseComponent } from './cube/settings/masters/course/course.component';
+import { CourseComponent } from './cube/settings/masters/coursemaster/coursemaster.component';
 import { SubjectmasterComponent } from './cube/settings/masters/subjectmaster/subjectmaster.component';
 import { LessonmasterComponent } from './cube/settings/masters/lessonmaster/lessonmaster.component';
-//import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { CKEditorModule } from 'ng2-ckeditor';
 
 
@@ -53,7 +52,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
     NavigationComponent,
     QcanvasComponent,
     QcreateComponent,
-    UserMenuComponent,
+   // UserMenuComponent,
     CubeComponent,
     ChangePasswordComponent,
     MastersComponent,
@@ -68,7 +67,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule.forRoot(adminLteConf),
+   // LayoutModule.forRoot(adminLteConf),
     HttpClientModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
@@ -79,7 +78,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
     HttpModule,
     CKEditorModule
   ],
-  exports: [UserMenuComponent],
+ // exports: [UserMenuComponent],
   providers: [UserService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,

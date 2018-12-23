@@ -119,7 +119,7 @@ export class QuestionmasterComponent implements OnInit {
   }
 
   GetQuestionList() {
-    this.masterservice.getQuestionList().subscribe((data: Question[]) => {
+    this.masterservice.getQuestionList("subjectid=0").subscribe((data: Question[]) => {
       this._questions = data;
     })
 

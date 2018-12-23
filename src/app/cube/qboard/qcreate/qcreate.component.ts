@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck, ViewChild } from '@angular/core';
+import { Component, OnInit, DoCheck, ViewChild, Input, OnChanges, SimpleChange } from '@angular/core';
 import { QserviceService } from '../qservice/qservice.service'
 import { SelectItem } from 'primeng/api';
 import { MatTable } from '@angular/material'
@@ -16,7 +16,7 @@ import { ConfirmationService } from 'primeng/api';
   providers: [ConfirmationService]
 })
 
-export class QcreateComponent implements OnInit {
+export class QcreateComponent implements OnInit, OnChanges {
 
   @ViewChild(MatTable) table: MatTable<any>
 
@@ -29,10 +29,22 @@ export class QcreateComponent implements OnInit {
     this.qservice.getHtml().subscribe(question => { this._question = question._html; });
   }
 
+  @Input() SubjectId: Number;
+
   _question: string = "";
   _questionlist: string;
   images: any[] = [];
   _questions: Question[];
+
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    for (let propName in changes) {
+      let changedProp = changes[propName];
+      let to = JSON.stringify(changedProp.currentValue);
+      this.masterservice.getQuestionList("subjectid=" + to).subscribe((data: Question[]) => {
+        this._questions = data;
+      })
+    }
+  }
 
   AddQuestion(Id: number) {
     this._question == undefined ? this._question = "&nbsp;" : 1 == 1;
@@ -57,7 +69,7 @@ export class QcreateComponent implements OnInit {
   }
 
   GetQuestionList() {
-    this.masterservice.getQuestionList().subscribe((data: Question[]) => {
+    this.masterservice.getQuestionList("subjectid=0").subscribe((data: Question[]) => {
       this._questions = data;
     })
   }

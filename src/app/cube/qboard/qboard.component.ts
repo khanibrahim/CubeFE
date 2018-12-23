@@ -60,7 +60,7 @@ export class QBoardComponent implements OnInit {
 
   printQuestionPaper() {
     var x = window.open();
-    x.document.open().write(this.cssforckeditor + this.questionpaper.Html + '<script>print() </script>');
+    x.document.open().write(this.questionpaper.Html + '<script>print() </script>');
   }
 
   mailQuestionPaper() {
@@ -167,8 +167,6 @@ export class QBoardComponent implements OnInit {
 
     this.setMenue();
   }
-
-  cssforckeditor: string = `<style type='text/css'>.image-style-align-right{float:right;}</style>`;
 }
 
 
