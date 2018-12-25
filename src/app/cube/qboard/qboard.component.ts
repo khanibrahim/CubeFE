@@ -6,6 +6,7 @@ import { MastersService } from './../../shared/masters.service'
 import { MenuItem } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
+import { CommonService } from './../../shared/common.service'
 
 @Component({
   selector: 'app-qboard',
@@ -18,20 +19,21 @@ export class QBoardComponent implements OnInit {
   constructor
     (
       private masterservice: MastersService,
-      private service: QserviceService,
+      private questionservice: QserviceService,
       private route: ActivatedRoute,
       private confirmationService: ConfirmationService,
-      private messageService: MessageService
-    ) {
+      private messageService: MessageService,
+      private commonService: CommonService,
+  ) {
     this.route.params.subscribe(params => { this.questionpaper.Id = params.id });
-    service.getHtml().subscribe(html => this.questionpaper.Html = html._html);
+    questionservice.getHtml().subscribe(html => this.questionpaper.Html = html._html);
   }
 
   private items: MenuItem[];
   subjects: any = [];
   _subjects: Subject[];
   editMode: boolean = false;
-  questionpaper: QuestionPaper = { Id: 0, Name: "", Html: "", SubjectId: 0, RCB: 0, RUB: 0, RCT: "2018-12-12T00:08:38.607", RUT: "2018-12-12T00:08:38.607", IsActive: true };
+  questionpaper: QuestionPaper = new QuestionPaper();//{ Id: 0, Name: "", Html: "", SubjectId: 0, RCB: 0, RUB: 0, RCT: "2018-12-12T00:08:38.607", RUT: "2018-12-12T00:08:38.607", IsActive: true };
   orientationMeasure: any = { controls: "col col-sm-6", canvas: "canvas col col-sm-6" }
   togglelayout: boolean = true;
 
@@ -47,13 +49,16 @@ export class QBoardComponent implements OnInit {
   }
 
   saveQuestionPaper() {
+    this.commonService.setBlockUI(true);
     if (this.questionpaper.Id != undefined) {
-      this.service.updateQuestionPaper(this.questionpaper).subscribe(data => {
+      this.questionservice.updateQuestionPaper(this.questionpaper).subscribe(data => {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Record Saved' });
+        this.commonService.setBlockUI(false);
       })
     } else {
-      this.service.saveQuestionPaper(this.questionpaper).subscribe(data => {
+      this.questionservice.saveQuestionPaper(this.questionpaper).subscribe(data => {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Record Updated' });
+        this.commonService.setBlockUI(false);
       })
     }
   }
@@ -64,17 +69,22 @@ export class QBoardComponent implements OnInit {
   }
 
   mailQuestionPaper() {
-    this.service.emailQuestionPaper(this.questionpaper.Id).subscribe();
+    this.questionservice.emailQuestionPaper(this.questionpaper.Id).subscribe();
   }
 
   deleteQuestionPaper() {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to detele this paper?',
       accept: () => {
-        this.service.deleteQuestionPaper(this.questionpaper.Id).subscribe();
-        this.service.clearHtml();
+        this.questionservice.deleteQuestionPaper(this.questionpaper.Id).subscribe();
+        this.questionservice.clearHtml();
       }
     });
+  }
+
+  addNewQuestionPaper() {
+    this.questionpaper = new QuestionPaper();
+    this.clearHtml();
   }
 
   SubjectChange(event: any) {
@@ -91,45 +101,9 @@ export class QBoardComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to reset all content?',
       accept: () => {
-        this.service.clearHtml();
+        this.questionservice.clearHtml();
       }
     });
-  }
-
-  setMenue() {
-    this.items = [
-      {
-        label: '',
-        icon: 'pi pi-fw pi-cog',
-        items: [
-          {
-            label: 'Reset', icon: 'fa fa-eraser', command: (event) => {
-              this.clearHtml();
-            }
-          },
-          {
-            label: 'Save', icon: 'fa fa-save', command: (event) => {
-              this.saveQuestionPaper();
-            }
-          },
-          {
-            label: 'Delete', icon: 'fa fa-trash', command: (event) => {
-              this.deleteQuestionPaper();
-            }
-          },
-          {
-            label: 'Print', icon: 'fa fa-print', command: (event) => {
-              this.printQuestionPaper();
-            }
-          },
-          {
-            label: 'Email', icon: 'fa fa-envelope', command: (event) => {
-              this.mailQuestionPaper();
-            }
-          }
-        ]
-      }
-    ];
   }
 
   setOrientation(orientation: string) {
@@ -148,24 +122,22 @@ export class QBoardComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.commonService.setBlockUI(true);
     if (this.questionpaper.Id != undefined) {
-      this.service.getQuestionPaper(this.questionpaper.Id).subscribe((data: QuestionPaper) => {
+      this.questionservice.getQuestionPaper(this.questionpaper.Id).subscribe((data: QuestionPaper) => {
         this.questionpaper = data;
-        this.service.setHtml(this.questionpaper.Html);
+        this.questionservice.setHtml(this.questionpaper.Html);
       })
     }
     else {
-      this.service.setHtml("<h3 style='text-align:center;'>College Name</h3><p><span class='text-small'><strong>Subject: _________</strong></span><br><span class='text-small'><strong>Time: ____________</strong></span><br><span class='text-small'><strong>Venue: ___________</strong></span></p><p style='text-align:center;'><strong>--------------------------------------------------------------------------------------------------------------------</strong></p>");
+      this.questionservice.setHtml("<h3 style='text-align:center;'>College Name</h3><p><span class='text-small'><strong>Subject: _________</strong></span><br><span class='text-small'><strong>Time: ____________</strong></span><br><span class='text-small'><strong>Venue: ___________</strong></span></p><p style='text-align:center;'><strong>--------------------------------------------------------------------------------------------------------------------</strong></p>");
     }
-
     this.masterservice.getSubjectList().subscribe((data: Subject[]) => {
       data.forEach(function (value, index) {
         this.subjects.push({ subject: value.Name, code: value.Id })
-      }, this)
+      }, this);
+      this.commonService.setBlockUI(false);
     })
-
-    this.setMenue();
   }
 }
 

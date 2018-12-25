@@ -1,9 +1,9 @@
 <p-toast></p-toast>
 <div class="container">
   <div class="row" style="padding: 5px">
-    <div class="col col-sm-4">
+    <div class="col col-sm-6">
       <span class="ui-float-label">
-        <input id="float-input" type="text" size="60" pInputText [(ngModel)]="questionpaper.Name">
+        <input id="float-input" type="text" size="80" pInputText [(ngModel)]="questionpaper.Name">
         <label for="float-input">Name</label>
       </span>
     </div>
@@ -18,17 +18,7 @@
       <button pButton type="button" class="ui-button-save" label="Save" (click)="saveQuestionPaper();"></button>
     </div>
     <div class="col col-sm-1">
-      <button pButton type="button" class="ui-button-eraser" label="Reset" (click)="clearHtml();"></button>
-    </div>
-    <!--     
-    <div class="col col-sm-1">
-        <button pButton type="button" class="ui-button-trash" label="Delete" (click)="deleteQuestionPaper();"></button>
-    </div> -->
-    <div class="col col-sm-1">
-      <button pButton type="button" class="ui-button-print" label="Print" (click)="printQuestionPaper();"></button>
-    </div>
-    <div class="col col-sm-1">
-      <button pButton type="button" class="ui-button-info" label="Toggle" (click)="toggleLayout();"></button>
+      <button pButton type="button" class="ui-button-plus" label="New" (click)="addNewQuestionPaper();"></button>
     </div>
   </div>
 
@@ -41,5 +31,4 @@
     </div>
   </div>
   <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
-
 </div>

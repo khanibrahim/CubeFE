@@ -1,8 +1,8 @@
-export interface base {
-    Id: number;
-    IsActive: boolean;
-    RCB: number;
-    RCT: string;
-    RUB: number;
-    RUT: string;
+export class base {
+    public Id: number;
+    public IsActive: boolean;
+    public RCB: number;
+    public RCT: string;
+    public RUB: number;
+    public RUT: string;
 }

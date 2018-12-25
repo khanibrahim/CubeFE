@@ -26,7 +26,7 @@ export class QuestionmasterComponent implements OnInit {
     private messageService: MessageService
   ) { }
 
-  _question: Question = { Id: undefined, Question1: "", Type: 0, LessonId: 0, RCB: 1, RUB: 1, RCT: "2018-12-12T00:08:38.607", RUT: "2018-12-12T00:08:38.607", IsActive: true };
+  _question: Question = new Question()// { Id: undefined, Question1: "", Type: 0, LessonId: 0, RCB: 1, RUB: 1, RCT: "2018-12-12T00:08:38.607", RUT: "2018-12-12T00:08:38.607", IsActive: true };
   _questions: Question[];
   _lessons: any = [];
   lessons: any = [];
@@ -61,7 +61,7 @@ export class QuestionmasterComponent implements OnInit {
           });
         };
       }
-      else{
+      else {
         this.messageService.add({ severity: 'error', summary: 'Upload Failed', detail: 'Select Image Smaller than 30 Kb' });
       }
     }

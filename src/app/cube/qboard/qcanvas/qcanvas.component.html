@@ -1,29 +1,13 @@
 <!-- <h5 style="text-align:center"><strong>Preview</strong></h5> -->
 <br>
 <!-- <ckeditor [editor]="Editor"  [(ngModel)]="_html" (ngModelChange)="textChange($event)" (ready)="onReady($event)"></ckeditor> -->
-<ckeditor
-    [(ngModel)]="_html"
-    [config]="{uiColor: '#ffffff'}"
-    [readonly]="false"
-    (change)="onChange($event)"
-    (editorChange)="onEditorChange($event)"
-    (ready)="onReady($event)"
-    (focus)="onFocus($event)"
-    (blur)="onBlur($event)"
-    (contentDom)="onContentDom($event)"
-    (fileUploadRequest)="onFileUploadRequest($event)"
-    (fileUploadResponse)="onFileUploadResponse($event)"
-    (paste)="onPaste($event)"
-    (drop)="onDrop($event)"
-    debounce="500">
-    <ckbutton [name]="'saveButton'"
-    [command]="'saveCmd'"
-    [icon]="'save.png'"
-    [label]="'Save Document'"
-    [toolbar]="'clipboard,1'">
+<ckeditor [(ngModel)]="_html" [config]="config" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)"
+  (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)"
+  (fileUploadRequest)="onFileUploadRequest($event)" (fileUploadResponse)="onFileUploadResponse($event)" (paste)="onPaste($event)"
+  (drop)="onDrop($event)" debounce="500">
+  <ckbutton [name]="'saveButton'" [command]="'saveCmd'" [icon]="'save.png'" [label]="'Save Document'" [toolbar]="'clipboard,1'">
   </ckbutton>
-  </ckeditor>
-<!-- <p-editor [(ngModel)]="_html" (onTextChange)="textChange($event.htmlValue)" [style]="{'height':'50vh'}"></p-editor> -->
-
-
-
+</ckeditor>
+<p-blockUI [blocked]="blockedPanel">
+  <img src="http://media.tnh.me/5827981d5ccacf4616240219/58ab2d135ccacf5e1ca3b7d5" style="position:absolute;top:35%;left:45%;width:150px;">
+</p-blockUI>

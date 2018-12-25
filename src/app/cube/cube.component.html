@@ -1,19 +1,10 @@
-<!-- <mk-layout-wrapper> -->
-<!-- <mk-layout-header>
-  <mk-layout-header-logo>Cube <small> Quetions</small></mk-layout-header-logo>
-  <mk-layout-header-logo-mini>CB</mk-layout-header-logo-mini>
-
-</mk-layout-header> -->
-
 <p-toolbar>
   <div class="ui-toolbar-group-left">
   </div>
 
   <div class="ui-toolbar-group-right">
     <div class="row">
-      <!-- <div class="col col-sm-8">
-        <p-panelMenu [model]="items" [style]="{'width':'150px'}"></p-panelMenu>
-      </div> -->
+      
       <div class="col col-sm-12">
         <span (click)="display = true" style="cursor: pointer;font-size:28px;text-align:center; "><i style="color:white;padding:5px;" class="pi pi-bars"></i></span>
         <p-sidebar [(visible)]="display" position="right">
@@ -30,30 +21,7 @@
     </div>
   </div>
 </p-toolbar>
-<!-- <mk-layout-sidebar-left>
-  </mk-layout-sidebar-left> -->
 
-<!-- <mk-layout-content> -->
 <div style="height:100vh; padding:20px 50px">
   <router-outlet></router-outlet>
 </div>
-<!-- </mk-layout-content> -->
-
-<!-- <mk-layout-footer>
-  <mk-layout-footer-left>
-    Cube
-  </mk-layout-footer-left>
-  <mk-layout-footer-right>
-    version 1.0
-  </mk-layout-footer-right>
-
-</mk-layout-footer> -->
-<!-- <p-toolbar style="position:sticky">
-  <div class="ui-toolbar-group-left">
-  </div>
-
-  <div class="ui-toolbar-group-right">
-    <small>Cube: version 1.0.0</small>
-  </div>
-</p-toolbar> -->
-<!-- </mk-layout-wrapper> -->

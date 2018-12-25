@@ -11,13 +11,9 @@ import { MenuItem } from 'primeng/api';
 export class CubeComponent implements OnInit {
 
   constructor(public router: Router) { }
-
-
   items: MenuItem[];
-  items1: MenuItem[];
 
   ngOnInit() {
-
     this.items = [
       { label: 'Home', icon: 'fa fa-th', routerLink: ['home'] },
       { label: 'Q-Board', icon: 'fa fa-font', routerLink: ['qboard'] },
@@ -46,5 +42,4 @@ export class CubeComponent implements OnInit {
     ];
 
   }
-
 }

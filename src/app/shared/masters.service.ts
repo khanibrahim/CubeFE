@@ -29,7 +29,7 @@ export class MastersService {
     return this.http.delete(this.rootUrl + '/api/question/' + id);
   }
 
-
+//////////////////////////////////////////////////////////////////////////////
 
   getCourseList() {
     return this.http.get(this.rootUrl + '/api/course');
@@ -47,6 +47,7 @@ export class MastersService {
     return this.http.delete(this.rootUrl + '/api/course/' + id);
   }
 
+//////////////////////////////////////////////////////////////////////////////
 
   getSubjectList() {
     return this.http.get(this.rootUrl + '/api/subject');
@@ -64,7 +65,7 @@ export class MastersService {
     return this.http.delete(this.rootUrl + '/api/subject/' + id);
   }
 
-
+//////////////////////////////////////////////////////////////////////////////
 
   getLessonList() {
     return this.http.get(this.rootUrl + '/api/lesson');

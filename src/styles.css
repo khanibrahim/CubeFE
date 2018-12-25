@@ -22,9 +22,13 @@ body .ui-toolbar {
 .ui-panelmenu,.ui-panelmenu-content-wrapper,.p-panelmenu{
     width:100% !important;
 }
-.ui-widget-overlay{
-    display: none;
+
+.ui-panelmenu-panel.ng-tns-c3-1.ng-star-inserted{
+    margin:20px 0px !important;
 }
+/* .ui-widget-overlay{
+    display: none;
+} */
 
 .ui-panelmenu-icon {
     display:none;

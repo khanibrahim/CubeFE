@@ -21,14 +21,9 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { HomeComponent } from './cube/home/home.component';
 import { UserComponent } from './user/user.component';
 import { QBoardComponent } from './cube/qboard/qboard.component';
-import { NavigationComponent } from './cube/navigation/navigation.component';
 import { QcanvasComponent } from './cube/qboard/qcanvas/qcanvas.component';
 import { QcreateComponent } from './cube/qboard/qcreate/qcreate.component';
 import { ChangePasswordComponent } from './user/change-password/change-password.component';
-
-import { adminLteConf } from './admin-lte.conf';  
-//import { LayoutModule } from 'angular-admin-lte';
-//import { UserMenuComponent } from './AdminLTE/user-menu/user-menu.component';
 import { CubeComponent } from './cube/cube.component';
 import { MastersComponent } from './cube/settings/masters/masters.component';
 import { QuestionmasterComponent } from './cube/settings/masters/questionmaster/questionmaster.component';
@@ -49,10 +44,8 @@ import { CKEditorModule } from 'ng2-ckeditor';
     UserComponent,
     SignInComponent,
     QBoardComponent,
-    NavigationComponent,
     QcanvasComponent,
     QcreateComponent,
-   // UserMenuComponent,
     CubeComponent,
     ChangePasswordComponent,
     MastersComponent,
@@ -67,7 +60,6 @@ import { CKEditorModule } from 'ng2-ckeditor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-   // LayoutModule.forRoot(adminLteConf),
     HttpClientModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
@@ -78,7 +70,6 @@ import { CKEditorModule } from 'ng2-ckeditor';
     HttpModule,
     CKEditorModule
   ],
- // exports: [UserMenuComponent],
   providers: [UserService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,

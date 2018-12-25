@@ -40,9 +40,11 @@ export class QcreateComponent implements OnInit, OnChanges {
     for (let propName in changes) {
       let changedProp = changes[propName];
       let to = JSON.stringify(changedProp.currentValue);
-      this.masterservice.getQuestionList("subjectid=" + to).subscribe((data: Question[]) => {
-        this._questions = data;
-      })
+      if (to != undefined) {
+        this.masterservice.getQuestionList("subjectid=" + to).subscribe((data: Question[]) => {
+          this._questions = data;
+        })
+      }
     }
   }
 
