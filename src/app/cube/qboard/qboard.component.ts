@@ -123,6 +123,7 @@ export class QBoardComponent implements OnInit {
 
   ngOnInit() {
     this.commonService.setBlockUI(true);
+    debugger;
     if (this.questionpaper.Id != undefined) {
       this.questionservice.getQuestionPaper(this.questionpaper.Id).subscribe((data: QuestionPaper) => {
         this.questionpaper = data;
