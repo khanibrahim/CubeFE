@@ -14,7 +14,6 @@ export class MastersService {
   constructor(private http: HttpClient) { }
 
   getQuestionList(parameters:string) {
-    debugger;
     return this.http.get(this.rootUrl + '/api/question?'+parameters);
   }
 

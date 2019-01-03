@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { MenuItem } from 'primeng/api';
 import { FileUploadService } from 'src/app/shared/fileupload.service';
 import { ConfirmationService } from 'primeng/api';
+import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
 
 @Component({
   selector: 'app-qcreate',
@@ -40,8 +41,7 @@ export class QcreateComponent implements OnInit, OnChanges {
     for (let propName in changes) {
       let changedProp = changes[propName];
       let to = JSON.stringify(changedProp.currentValue);
-      if (to != undefined) {
-        debugger;
+      if (parseInt(to) >= 0) {
         this.masterservice.getQuestionList("subjectid=" + to).subscribe((data: Question[]) => {
           this._questions = data;
         })
