@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { PropertyService } from 'src/app/shared/property.service';
 
 
 @Component({
@@ -10,8 +11,9 @@ import { MenuItem } from 'primeng/api';
 })
 export class CubeComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,private propertyService: PropertyService) { }
   items: MenuItem[];
+  propertyClaims: any;
 
   ngOnInit() {
     this.items = [
@@ -40,6 +42,8 @@ export class CubeComponent implements OnInit {
 
 
     ];
-
+    this.propertyService.getPropertyClaims().subscribe(data => {
+      this.propertyClaims = data;
+    })
   }
 }

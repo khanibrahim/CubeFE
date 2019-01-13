@@ -1,17 +1,20 @@
 <p-toolbar>
   <div class="ui-toolbar-group-left">
+    <h2 style="color:white; margin: 0px !important;">{{propertyClaims.Name}}</h2>
+    <p style="color:white; line-height: 20px; margin: 0px !important;">{{propertyClaims.Slogan}}</p>
   </div>
 
   <div class="ui-toolbar-group-right">
     <div class="row">
-      
+
       <div class="col col-sm-12">
-        <span (click)="display = true" style="cursor: pointer;font-size:28px;text-align:center; "><i style="color:white;padding:5px;" class="pi pi-bars"></i></span>
+        <span (click)="display = true" style="cursor: pointer;font-size:28px;text-align:center; "><i style="color:white;padding:5px;"
+            class="pi pi-bars"></i></span>
         <p-sidebar [(visible)]="display" position="right">
           <br>
           <div class="row">
             <div class="col col-sm-12" style="text-align:center;">
-              <img src="https://freepngimg.com/thumb/shape/29379-6-cube-transparent-image-thumb.png" >
+              <img [src]="propertyClaims.Logo">
             </div>
           </div>
           <br><br>
